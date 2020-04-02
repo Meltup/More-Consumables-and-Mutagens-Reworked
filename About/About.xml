@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>More Consumables and Mutagens Reworked</name>
+  	<packageId>Meltup.MoreConsumablesAndMutagens.Reworked</packageId>
+	<author>AtomicRavioli, Mlie, Meltup</author>
+	<supportedVersions>
+		<li>1.1</li>
+	</supportedVersions>
+	<modDependencies />
+	<loadAfter />
+	<description>
+Adds a collection of various consumable items with varying effects.
+
+Oracalium: neolithic blend of powdered herbs that is traditionally used by Oracles in tribal societies. Addictive. Repeated usage develops semi-permanent effects.
+
+Ambrosia Tea: drink made from ambrosia that calms down the drinker, and without addictive chance. Not as potent as ambrosia but slightly different effects.
+
+Hearth Brew: warming beverage for winter time, slightly alcoholic and makes the drinker more festive. Made from fruits and beer.
+
+Herbal Tincture: blend of various herbal medicines that help the user build an immunity to a disease, while making the user drowsy. Effects last 1 day.
+
+There are five kinds of mutagen pills: Sil, Ursa, Igni, Myrol, Midia.
+
+Taking a mutagen pill puts the user in a mutagenic reaction state. It begins with an initial phase before the effects kick in. After some time, the mutagen starts working. When active, the mutagen randomly gives the user mutations. Mutations are chosen randomly from a pool, some mutations cancel out others. Mutagen pills are highly refined, often giving more beneficial mutations than harmful ones. There is a small chance that the user might not mutate at all. All mutagen pills are purchasable only.
+
+With research done, you can eventually craft your own mutagens - Mutagenic Slurries. It begins with Catalyst Serum, a special solution embedded in some rancid meat that you craft at the drug lab. If you keep it safe and undisturbed for 3 days, the catalyst serum will break down into a baby slime. Slimes are ravenous creatures that will tirelessly consume and assimilate matter. Killing and butchering slime will yield slime globs which are essential component for making mutagen slurries.
+Mutagenic slurries are a VERY random mutagen that fit a lot of mutations into one consumable, making it very risky but very rewarding if you are lucky. Beware that the mutation phases are worse to your colonists when consuming the slurry.
+</description>
+</ModMetaData>

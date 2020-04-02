@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef Abstract="True" Name="CraftableEggBase" ParentName="OrganicProductBase" >
+    <graphicData>
+      <texPath>Things/Item/Resource/AnimalProductRaw/EggBirdSmall</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+    </graphicData>
+    <statBases>
+      <Mass>0.15</Mass>
+	  <MaxHitPoints>20</MaxHitPoints>
+	  <DeteriorationRate>2</DeteriorationRate>
+	  <Flammability>0.7</Flammability>
+    </statBases>
+	<thingCategories>
+      <li>EggsFertilized</li>
+    </thingCategories>
+  </ThingDef>
+  
+  <ThingDef ParentName="EggUnfertBase">
+    <defName>EggSlimeUnfertilized</defName>
+    <label>slime egg (unfert.)</label>
+    <description>Strange egg-like thing layed by a mutagenic slime. It can be eaten.</description>
+    <graphicData>
+	  <texPath>Things/Item/Resource/AnimalProductRaw/EggOval</texPath>
+      <color>(52,201,52)</color>
+	  <drawSize>1.3</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>60.0</MarketValue>
+    </statBases>
+  </ThingDef>
+
+  <ThingDef ParentName="EggFertBase">
+    <defName>EggSlimeFertilized</defName>
+    <label>slime egg (fert.)</label>
+    <description>Strange fertilized slime egg. If all goes well, it should hatch into a slime. It can be eaten.</description>
+    <graphicData>
+	  <texPath>Things/Item/Resource/AnimalProductRaw/EggOval</texPath>
+      <color>(52,201,52)</color>
+	  <drawSize>1.3</drawSize>
+    </graphicData>
+    <statBases>
+      <MarketValue>60.0</MarketValue>
+    </statBases>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>5.5</hatcherDaystoHatch>
+        <hatcherPawn>CMSlime</hatcherPawn>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef ParentName="CraftableEggBase">
+    <defName>CatalystSerum</defName>
+    <label>catalyst serum</label>
+    <description>Disgusting slurry of medical supplies and raw meat that breaks down into a mutagenic sludge. If left alone safe and undisturbed, the catalyst serum will eventually break down into a baby slime.</description>
+    <graphicData>
+      <color>(245,245,245)</color>
+	  <texPath>Things/CatalystSerum</texPath>
+	  <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>60.0</MarketValue>
+    </statBases>
+	<tickerType>Normal</tickerType>
+    <comps>
+      <li Class="CompProperties_Hatcher">
+        <hatcherDaystoHatch>3.0</hatcherDaystoHatch>
+        <hatcherPawn>CMSlime</hatcherPawn>
+      </li>
+	  <li Class="CompProperties_TemperatureRuinable">
+		<minSafeTemperature>-5</minSafeTemperature>
+		<maxSafeTemperature>55</maxSafeTemperature>
+		<progressPerDegreePerTick>0.00003</progressPerDegreePerTick>
+	  </li>
+    </comps>
+  </ThingDef>
+  
+  <RecipeDef>
+    <defName>MakeCatalystSerum</defName>
+    <label>make catalyst serum</label>
+    <description>Make mutagenic catalyst serum from medical supplies and raw meat.</description>
+    <jobString>Brewing catalyst.</jobString>
+    <workAmount>900</workAmount>
+    <workSpeedStat>DrugCookingSpeed</workSpeedStat>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+	<allowMixingIngredients>true</allowMixingIngredients>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+            <li>MeatRaw</li>
+          </categories>
+        </filter>
+        <count>15</count>
+      </li>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Neutroamine</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+	  <li>
+        <filter>
+          <thingDefs>
+            <li>MedicineIndustrial</li>
+          </thingDefs>
+        </filter>
+        <count>2</count>
+      </li>
+    </ingredients>
+    <products>
+      <CatalystSerum>1</CatalystSerum>
+    </products>
+    <fixedIngredientFilter>
+      <categories>
+        <li>MeatRaw</li>
+      </categories>
+      <thingDefs>
+        <li>MedicineIndustrial</li>
+        <li>Neutroamine</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <defaultIngredientFilter>
+      <categories>
+        <li>Foods</li>
+		<li>Manufactured</li>
+		<li>Medicine</li>
+      </categories>
+    </defaultIngredientFilter>
+    <workSkill>Intellectual</workSkill>
+	<recipeUsers>
+      <li>DrugLab</li>
+    </recipeUsers>
+    <researchPrerequisite>MutagenOne</researchPrerequisite>
+    <skillRequirements>
+      <Medicine>6</Medicine>
+      <Cooking>4</Cooking>
+    </skillRequirements>
+  </RecipeDef>
+  
+  
+</Defs>

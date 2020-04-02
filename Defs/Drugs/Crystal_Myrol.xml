@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Myrol</defName>
+    <label>myrol</label>
+    <description>A green pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversibly. Myrol was produced for a specific mutation, myrolsis, which bestows light regeneration and stronger blood filtration. However, most of its side effects are less than desirable...</description>
+	<descriptionHyperlinks>
+      <HediffDef>MyrolHigh</HediffDef>
+	  <HediffDef>MyrolMyrolsis</HediffDef>
+	  <HediffDef>MyrolStatic</HediffDef>
+      <HediffDef>SilStomach</HediffDef>
+      <HediffDef>MidiaRough</HediffDef>
+      <HediffDef>MyrolLung</HediffDef>
+      <HediffDef>UrsaSlow</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Myrol</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MarketValue>415</MarketValue>
+	  <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>MyrolHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+		<addictiveness>0</addictiveness>
+        <needLevelOffset>1</needLevelOffset>
+        <listOrder>1960</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!-- mutations -->
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MyrolStatic</defName>
+    <label>static</label>
+    <description>Mutation that has resulted in brain developing a static condition.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Myrol</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <statOffsets>
+          <GlobalLearningFactor>-0.1</GlobalLearningFactor>
+		  <PsychicSensitivity>-0.2</PsychicSensitivity>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MyrolMyrolsis</defName>
+    <label>myrolsis</label>
+    <description>Mutation that has resulted in body developing regenerative abilities that heal permanent wounds.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Myrol</ThingDef>
+    </descriptionHyperlinks>
+	<comps>
+		<li Class="HediffCompProperties_HealPermanentWounds" />
+	</comps>
+    <stages>
+	  <li>
+        <capMods>
+		  <li>
+		    <capacity>BloodFiltration</capacity>
+		    <offset>0.15</offset>
+		  </li>
+	    </capMods>
+	  </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MyrolLung</defName>
+    <label>constricted breathing</label>
+    <description>Mutation that has resulted in regression of pulmonary system.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Myrol</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+	  <li>
+        <capMods>
+		  <li>
+		    <capacity>Breathing</capacity>
+		    <offset>-0.1</offset>
+		  </li>
+	    </capMods>
+	  </li>
+    </stages>
+  </HediffDef>
+
+
+  <!-- Mutation phase -->
+  
+  <HediffDef>
+    <defName>MyrolHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>mutagenic reaction (myrol)</label>
+    <description>Active mutagenic reaction in the body.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Myrol</ThingDef>
+    </descriptionHyperlinks>
+    <defaultLabelColor>(179,86,132)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.30</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+	    <li>
+		  <label>receding</label>
+          <minSeverity>0</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+        <li>
+		  <label>active</label>
+		  <minSeverity>0.35</minSeverity>
+          <painFactor>1.6</painFactor>
+		  <hungerRateFactor>1.6</hungerRateFactor>
+		  <vomitMtbDays>3</vomitMtbDays>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.25</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.20</offset>
+            </li>
+			<li>
+              <capacity>Sight</capacity>
+              <offset>-0.15</offset>
+            </li>
+			<li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.20</offset>
+            </li>
+          </capMods>
+		  <hediffGivers>
+		    <li Class="HediffGiver_Random">
+              <hediff>MyrolMyrolsis</hediff>
+              <mtbDays>3</mtbDays>
+            </li>
+            <li Class="HediffGiver_Random">
+              <hediff>MyrolStatic</hediff>
+              <mtbDays>8</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilStomach</hediff>
+              <mtbDays>8</mtbDays>
+			  <partsToAffect>
+                <li>Stomach</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MidiaRough</hediff>
+              <mtbDays>9</mtbDays>
+			  <partsToAffect>
+                <li>Neck</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MyrolLung</hediff>
+              <mtbDays>9</mtbDays>
+			  <partsToAffect>
+                <li>Lung</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>UrsaSlow</hediff>
+              <mtbDays>9</mtbDays>
+            </li>
+          </hediffGivers>
+        </li>
+		<li>
+		  <label>initial</label>
+          <minSeverity>0.85</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+      </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>MyrolReaction</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>MyrolHigh</hediff>
+    <stages>
+	  <li>
+        <label>mutagenic reaction (myrol)</label>
+        <description>I can feel it in my body.</description>
+        <baseMoodEffect>-3</baseMoodEffect>
+      </li>
+      <li>
+        <label>mutagenic reaction (myrol)</label>
+        <description>My skin is crawling and my stomach is churning.</description>
+        <baseMoodEffect>-9</baseMoodEffect>
+      </li>
+	  <li>
+        <label>mutagenic reaction (myrol)</label>
+        <description>I am really uneasy.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>

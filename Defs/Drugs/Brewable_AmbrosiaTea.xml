@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugBase">
+    <defName>AmbrosiaTea</defName>
+    <label>Ambrosian tea</label>
+    <description>A delightful beverage made by steeping ambrosia in boiling water and cooling it down. The resulting tea calms the nerves and offers minor health benefits, but is not addictive. However, those with an addiction to ambrosia won't feel satisfied with it.</description>
+	<descriptionHyperlinks>
+      <HediffDef>AmbrosiaTeaHigh</HediffDef>
+    </descriptionHyperlinks>
+	<graphicData>
+      <texPath>Things/AmbrosiaTea</texPath>
+      <graphicClass>Graphic_StackCount</graphicClass>
+	  <drawSize>0.9</drawSize>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <stackLimit>25</stackLimit>
+	<statBases>
+      <MarketValue>25</MarketValue>
+      <Mass>0.3</Mass>
+      <DeteriorationRate>6</DeteriorationRate>
+	  <Nutrition>0.1</Nutrition>
+    </statBases>
+	<tickerType>Rare</tickerType>
+	<techLevel>Neolithic</techLevel>
+    <ingestible>
+      <foodType>Fluid, Processed</foodType>
+	  <joyKind>Chemical</joyKind>
+      <joy>0.35</joy>
+      <nurseable>true</nurseable>
+      <drugCategory>Social</drugCategory>
+      <ingestSound>Ingest_Drink</ingestSound>
+      <ingestHoldOffsetStanding>
+        <northDefault>
+          <offset>(0.18,0,0)</offset>
+        </northDefault>
+      </ingestHoldOffsetStanding>
+      <ingestCommandString>Drink {0}</ingestCommandString>
+      <ingestReportString>Drinking {0}.</ingestReportString>
+      <chairSearchRadius>25</chairSearchRadius>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>AmbrosiaTeaHigh</hediffDef>
+          <severity>0.27</severity>
+          <toleranceChemical>AmbrosiaTea</toleranceChemical>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+        <chemical>AmbrosiaTea</chemical>
+        <addictiveness>0.00</addictiveness>
+        <minToleranceToAddict>0.99</minToleranceToAddict>
+        <existingAddictionSeverityOffset>0.20</existingAddictionSeverityOffset>
+        <needLevelOffset>1</needLevelOffset>
+        <listOrder>10</listOrder>
+      </li>
+	  <li Class="CompProperties_Rottable">
+        <daysToRotStart>4</daysToRotStart>
+        <rotDestroys>true</rotDestroys>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <HediffDef>
+    <defName>AmbrosiaTeaHigh</defName>
+    <hediffClass>Hediff_Alcohol</hediffClass>
+    <label>high on ambrosia tea</label>
+	<labelNoun>an ambrosia tea high</labelNoun>
+    <description>Active ambrosia tea in the bloodstream. Provides soothing effect and improves blood filtration.</description>
+    <defaultLabelColor>(1,0,0.5)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+	<maxSeverity>1.0</maxSeverity>
+    <isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-1.1</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+        <li>
+          <label>buzzed-hidden</label>
+        </li>
+        <li>
+          <minSeverity>0.1</minSeverity>
+          <label>warmbuzzy</label>
+          <painFactor>0.9</painFactor>
+		  <statOffsets>
+		    <MentalBreakThreshold>-0.02</MentalBreakThreshold>
+		  </statOffsets>
+            <capMods>
+              <li>
+                <capacity>BloodFiltration</capacity>
+                <offset>0.05</offset>
+              </li>
+            </capMods>
+        </li>
+        <li>
+          <minSeverity>0.5</minSeverity>
+          <label>feeling better</label>
+          <painFactor>0.85</painFactor>
+		  <statOffsets>
+		    <MentalBreakThreshold>-0.03</MentalBreakThreshold>
+		  </statOffsets>
+            <capMods>
+              <li>
+                <capacity>BloodFiltration</capacity>
+                <offset>0.075</offset>
+              </li>
+            </capMods>
+        </li>
+      </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>AmbrosiaTeaHappy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>AmbrosiaTeaHigh</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <label>buzzed-hidden</label>
+        <description>Should not appear.</description>
+        <baseMoodEffect>0</baseMoodEffect>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>something good for me!</label>
+        <description>I had something really good! Now I'm all warm and fuzzy inside.</description>
+        <baseMoodEffect>5</baseMoodEffect>
+	  </li>
+    </stages>
+  </ThoughtDef>
+  
+  <!-- Similar to alcohol addiction -->
+  
+  <ChemicalDef>
+    <defName>AmbrosiaTea</defName>
+    <label>Ambrosia tea</label>
+    <addictionHediff>AmbrosiaTeaAddiction</addictionHediff>
+    <toleranceHediff>AmbrosiaTeaTolerance</toleranceHediff>
+    <onGeneratedAddictedToleranceChance>0</onGeneratedAddictedToleranceChance>
+  </ChemicalDef>
+  
+  <NeedDef ParentName="DrugAddictionNeedBase">
+    <defName>Chemical_AmbrosiaTea</defName>
+    <needClass>Need_Chemical</needClass>
+    <label>ambrosia tea</label>
+    <description>Because of an ambrosia tea addiction, this person needs to regularly consume the drug to avoid withdrawal symptoms.</description>
+    <listPriority>35</listPriority>
+  </NeedDef>
+
+  <HediffDef ParentName="DrugToleranceBase">
+    <defName>AmbrosiaTeaTolerance</defName>
+    <label>ambrosia tea tolerance</label>
+    <description>A built-up tolerance to ambrosia tea. The more severe this tolerance is, the more ambrosia tea it takes to get the same effect.</description>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.5</severityPerDay>
+      </li>
+      <li Class="HediffCompProperties_DrugEffectFactor">
+        <chemical>AmbrosiaTea</chemical>
+      </li>
+    </comps>
+  </HediffDef>
+
+  <HediffDef ParentName="AddictionBase">
+    <defName>AmbrosiaTeaAddiction</defName>
+    <hediffClass>Hediff_Addiction</hediffClass>
+    <label>ambrosia tea addiction</label>
+    <description>A chemical addiction to ambrosia tea. Long-term presence of ambrosia tea has caused neurological adaptations at the cellular level, so the brain can no longer function properly without the drug.
+\nWithout regular doses of ambrosia tea, withdrawal symptoms will begin. However, extended abstinence will force the brain to adapt back to its normal state, resolving the addiction.</description>
+    <causesNeed>Chemical_AmbrosiaTea</causesNeed>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.533</severityPerDay>
+      </li>
+    </comps>
+    <stages>
+      <li>
+      </li>
+      <li>
+        <label>withdrawal</label>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <ThoughtDef>
+    <defName>AmbrosiaTeaWithdrawal</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>AmbrosiaTeaAddiction</hediff>
+    <validWhileDespawned>true</validWhileDespawned>
+    <stages>
+      <li>
+        <visible>false</visible>
+      </li>
+      <li>
+        <label>ambrosia tea withdrawal</label>
+        <description>Feeling shaky.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Ursa</defName>
+    <label>ursa</label>
+    <description>A brown pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversibly. Forming beast like mutations, Ursa was primarily designed for use by special divisions of military shock troopers.</description>
+	<descriptionHyperlinks>
+      <HediffDef>UrsaHigh</HediffDef>
+	  <HediffDef>UrsaSleep</HediffDef>
+	  <HediffDef>IgniSpeed</HediffDef>
+      <HediffDef>UrsaClaws</HediffDef>
+      <HediffDef>UrsaFur</HediffDef>
+      <HediffDef>SlurryEyes</HediffDef>
+      <HediffDef>UrsaWild</HediffDef>
+	  <HediffDef>UrsaDisfigured</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Ursa</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MarketValue>415</MarketValue>
+	  <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>UrsaHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+		<addictiveness>0</addictiveness>
+        <needLevelOffset>1</needLevelOffset>
+        <listOrder>1960</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!-- mutations -->
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>UrsaSleep</defName>
+    <label>lethargic</label>
+    <description>Mutation that has resulted in brain developing a necessity to rest more. Mutually exclusive with vigorous mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <restFallFactor>1.2</restFallFactor>
+		<makeImmuneTo>
+          <li>SlurryWired</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>UrsaSlow</defName>
+    <label>ponderous</label>
+    <description>Mutation that has resulted in degradation of movement coordination. Mutually exclusive with graceful mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+		<ThingDef>Myrol</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MoveSpeed>-0.16</MoveSpeed>
+        </statOffsets>
+		<makeImmuneTo>
+          <li>IgniSpeed</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>UrsaFur</defName>
+    <label>fur</label>
+    <description>Mutation that has resulted in thick growth of hair that covers the skin. Mutually exclusive with phelloderm and slimy skin mutations.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+		  <ArmorRating_Sharp>0.035</ArmorRating_Sharp>
+		  <ArmorRating_Blunt>0.015</ArmorRating_Blunt>
+		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+        </statOffsets>
+		<makeImmuneTo>
+          <li>SilSkin</li>
+		  <li>SlurrySlimy</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>UrsaDisfigured</defName>
+    <label>mutilated</label>
+    <description>Mutation that has resulted in change of appearance beyond recognition.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+          <PawnBeauty>-1</PawnBeauty>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationPartBase">
+      <defName>UrsaClaws</defName>
+      <label>claws</label>
+      <description>Mutation that has resulted in development of claws on hands. These claws can act as a powerful weapon, however they are difficult to work with.</description>
+	  <descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+      </descriptionHyperlinks>
+      <addedPartProps>
+         <partEfficiency>1.00</partEfficiency>
+		 <solid>true</solid>
+      </addedPartProps>
+	  <stages>
+		<li>
+          <capMods>
+            <li>
+               <capacity>Manipulation</capacity>
+               <offset>-0.05</offset>
+            </li>
+           </capMods>
+		</li>	 
+      </stages>
+      <comps>
+			<li Class="HediffCompProperties_VerbGiver">
+			    <tools>
+      		      <li>
+      		        <capacities>
+      		          <li>Scratch</li>
+      		        </capacities>
+      		        <power>14</power>
+      		        <cooldownTime>1.5</cooldownTime>
+      		        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+    		      </li>
+    		    </tools>
+			</li>
+	  </comps>
+  </HediffDef>
+   
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>UrsaWild</defName>
+    <label>animal-like</label>
+    <description>Mutation that has resulted in drastic change of brain activities to the animal level. While it does have certain benefits, animal-like pawns will often go into sadistic rage. Mutually exclusive with floral-like mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <painFactor>0.9</painFactor>
+        <statOffsets>
+          <SocialImpact>-0.35</SocialImpact>
+		  <PsychicSensitivity>0.6</PsychicSensitivity>
+		  <MentalBreakThreshold>-0.08</MentalBreakThreshold>
+        </statOffsets>
+		<capMods>
+			<li>
+				<capacity>Hearing</capacity>
+				<offset>0.2</offset>
+			</li>
+		</capMods>
+		<mentalStateGivers>
+          <li>
+            <mentalState>SadisticRage</mentalState>
+            <mtbDays>15</mtbDays>
+          </li>
+        </mentalStateGivers>
+		<makeImmuneTo>
+          <li>SilDegraded</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Mutation phase -->
+  
+  <HediffDef>
+    <defName>UrsaHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>mutagenic reaction (ursa)</label>
+    <description>Active mutagenic reaction in the body.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+    </descriptionHyperlinks>
+    <defaultLabelColor>(179,86,132)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.30</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+	    <li>
+		  <label>receding</label>
+          <minSeverity>0</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+        <li>
+		  <label>active</label>
+		  <minSeverity>0.35</minSeverity>
+          <painFactor>1.6</painFactor>
+		  <hungerRateFactor>1.6</hungerRateFactor>
+		  <vomitMtbDays>3</vomitMtbDays>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.25</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.20</offset>
+            </li>
+			<li>
+              <capacity>Sight</capacity>
+              <offset>-0.15</offset>
+            </li>
+			<li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.20</offset>
+            </li>
+          </capMods>
+		  <hediffGivers>
+            <li Class="HediffGiver_Random">
+              <hediff>UrsaSleep</hediff>
+              <mtbDays>6</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniSpeed</hediff>
+              <mtbDays>7</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>UrsaClaws</hediff>
+              <mtbDays>7</mtbDays>
+			  <partsToAffect>
+                <li>Hand</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>UrsaFur</hediff>
+              <mtbDays>8</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SlurryEyes</hediff>
+              <mtbDays>9</mtbDays>
+			  <partsToAffect>
+                <li>Eye</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>UrsaWild</hediff>
+              <mtbDays>10</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+			</li>
+			<li Class="HediffGiver_Random">
+              <hediff>UrsaDisfigured</hediff>
+              <mtbDays>13</mtbDays>
+            </li>
+          </hediffGivers>
+        </li>
+		<li>
+		  <label>initial</label>
+          <minSeverity>0.85</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+      </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>UrsaReaction</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>UrsaHigh</hediff>
+    <stages>
+	  <li>
+        <label>mutagenic reaction (ursa)</label>
+        <description>My body doesn't feel right.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>mutagenic reaction (ursa)</label>
+        <description>I feel like something deep inside me is yelling and screaming.</description>
+        <baseMoodEffect>-17</baseMoodEffect>
+      </li>
+	  <li>
+        <label>mutagenic reaction (ursa)</label>
+        <description>I am really uneasy.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>

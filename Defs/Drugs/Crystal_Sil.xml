@@ -1,0 +1,359 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Sil</defName>
+    <label>sil</label>
+    <description>A light blue pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversabily. Popular on Glitterworlds for the beautiful floral changes to the body. Infamous on Urbworlds for the lethal toxins that some of the mutations secrete.</description>
+	<descriptionHyperlinks>
+      <HediffDef>SilHigh</HediffDef>
+	  <HediffDef>SilFlowers</HediffDef>
+	  <HediffDef>SilStomach</HediffDef>
+      <HediffDef>SilBlood</HediffDef>
+      <HediffDef>SilSkin</HediffDef>
+      <HediffDef>SilEyes</HediffDef>
+	  <HediffDef>SilCalm</HediffDef>
+      <HediffDef>SilDegraded</HediffDef>
+	  <HediffDef>SlurryWired</HediffDef>
+	  <HediffDef>SlurrySooth</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Sil</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MarketValue>415</MarketValue>
+	  <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>SilHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+		<addictiveness>0</addictiveness>
+        <needLevelOffset>1</needLevelOffset>
+        <listOrder>1960</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!-- mutations -->
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>SilFlowers</defName>
+    <label>hair flowers</label>
+    <description>Mutation that has resulted in colorful flowers sprouting out from hair.</description>
+    <descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+          <PawnBeauty>1</PawnBeauty>
+		  <ToxicSensitivity>0.20</ToxicSensitivity>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>SilStomach</defName>
+    <label>corrosive acids</label>
+    <description>Mutation that has resulted in digestive fluids turning into corrosive acids, making food digestion less effective.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+		<ThingDef>Myrol</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <hungerRateFactor>1.20</hungerRateFactor>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>SilBlood</defName>
+    <label>viperous blood</label>
+    <description>Mutation that has resulted in blood developing toxic properties. It increases the pain one experience, however also improves blood filtration.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+		<painFactor>1.1</painFactor>
+        <statOffsets>
+		  <ToxicSensitivity>-0.1</ToxicSensitivity>
+        </statOffsets>
+	    <capMods>
+          <li>
+            <capacity>BloodFiltration</capacity>
+            <offset>0.20</offset>
+          </li>
+	    </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>SilSkin</defName>
+    <label>phelloderm</label>
+    <description>Mutation that has resulted in development of skin layers placed one after another in protective manner. Mutually exclusive with fur and slimy skin mutations.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+		  <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
+		  <ArmorRating_Blunt>0.075</ArmorRating_Blunt>
+		  <MoveSpeed>-0.1</MoveSpeed>
+        </statOffsets>
+		<makeImmuneTo>
+          <li>UrsaFur</li>
+		  <li>SlurrySlimy</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationPartBase">
+      <defName>SilEyes</defName>
+      <label>fey eye</label>
+      <description>Mutation that has resulted in eye developing a pupil that reflects light in all rainbow colors, often referred as fey eye. Mutually exclusive with snake eye mutation.</description>
+	  <descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+      </descriptionHyperlinks>
+      <addedPartProps>
+         <partEfficiency>1.10</partEfficiency>
+         <solid>false</solid>
+      </addedPartProps>
+      <stages>
+		<li>
+          <statOffsets>
+            <SocialImpact>0.1</SocialImpact>
+          </statOffsets>
+		  <capMods>
+            <li>
+              <capacity>Sight</capacity>
+              <offset>0.10</offset>
+            </li>
+	      </capMods>
+		  <makeImmuneTo>
+            <li>SlurryEyes</li>
+          </makeImmuneTo>
+		</li>	 
+      </stages>
+   </HediffDef>
+   
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>SilDegraded</defName>
+    <label>floral-like</label>
+    <description>Mutation that has resulted in degradation of the brain activities to the floral level. Mutually exclusive with animal-like mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <painFactor>0.75</painFactor>
+		<statOffsets>
+		  <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
+        </statOffsets>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.10</offset>
+          </li>
+		  <li>
+            <capacity>Talking</capacity>
+            <offset>-0.35</offset>
+          </li>
+        </capMods>
+		<makeImmuneTo>
+          <li>UrsaWild</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>SilCalm</defName>
+    <label>calm</label>
+    <description>Mutation that has resulted in brain activities becoming focused on positive emotions. Mutually exclusive with rage mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MentalBreakThreshold>-0.12</MentalBreakThreshold>
+        </statOffsets>
+		<makeImmuneTo>
+          <li>IgniRage</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Mutation phase -->
+  
+  <HediffDef>
+    <defName>SilHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>mutagenic reaction (sil)</label>
+    <description>Active mutagenic reaction in the body.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Sil</ThingDef>
+    </descriptionHyperlinks>
+    <defaultLabelColor>(179,86,132)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.30</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+	    <li>
+		  <label>receding</label>
+          <minSeverity>0</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+        <li>
+		  <label>active</label>
+		  <minSeverity>0.35</minSeverity>
+          <painFactor>1.6</painFactor>
+		  <hungerRateFactor>1.6</hungerRateFactor>
+		  <vomitMtbDays>3</vomitMtbDays>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.25</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.20</offset>
+            </li>
+			<li>
+              <capacity>Sight</capacity>
+              <offset>-0.15</offset>
+            </li>
+			<li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.20</offset>
+            </li>
+          </capMods>
+		  <hediffGivers>
+            <li Class="HediffGiver_Random">
+              <hediff>SilFlowers</hediff>
+              <mtbDays>5</mtbDays>
+			  <partsToAffect>
+                <li>Head</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilStomach</hediff>
+              <mtbDays>5</mtbDays>
+			  <partsToAffect>
+                <li>Stomach</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilBlood</hediff>
+              <mtbDays>6</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilSkin</hediff>
+              <mtbDays>7</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilEyes</hediff>
+              <mtbDays>7</mtbDays>
+			  <partsToAffect>
+                <li>Eye</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilCalm</hediff>
+              <mtbDays>10</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SilDegraded</hediff>
+              <mtbDays>12</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SlurryWired</hediff>
+              <mtbDays>14</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SlurrySooth</hediff>
+              <mtbDays>17</mtbDays>
+            </li>
+          </hediffGivers>
+        </li>
+		<li>
+		  <label>initial</label>
+          <minSeverity>0.85</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+      </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>SilReaction</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>SilHigh</hediff>
+    <stages>
+	  <li>
+        <label>mutagenic reaction (sil)</label>
+        <description>My body doesn't feel right.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>mutagenic reaction (sil)</label>
+        <description>Ugh, I have an awful headache.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+	  <li>
+        <label>mutagenic reaction (sil)</label>
+        <description>I am really uneasy.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>

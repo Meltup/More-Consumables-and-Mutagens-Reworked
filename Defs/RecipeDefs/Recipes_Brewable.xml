@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <RecipeDef Name="MakeHearthBrew">
+    <defName>MakeHearthBrew</defName>
+    <label>make hearth brew x4</label>
+    <description>Make 4 cups of hearth brew, a mildly alcoholic drink that warms the body.</description>
+    <jobString>Making hearth brew.</jobString>
+    <workAmount>600</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+	<recipeUsers>
+	    <li>Campfire</li>
+		<li>ElectricStove</li>
+		<li>FueledStove</li>
+	</recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <categories>
+			<li>FruitFoodRaw</li>
+		  </categories>
+        </filter>
+        <count>20</count>
+      </li>
+	  <li>
+        <filter>
+          <thingDefs>
+            <li>Beer</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+	<fixedIngredientFilter>
+        <categories>
+			<li>FruitFoodRaw</li>
+		</categories>
+		<thingDefs>
+            <li>Beer</li>
+        </thingDefs>
+        <specialFiltersToDisallow>
+            <li>AllowRotten</li>
+        </specialFiltersToDisallow>
+    </fixedIngredientFilter>
+    <products>
+      <HearthBrew>4</HearthBrew>
+    </products>
+    <workSkill>Cooking</workSkill>
+	<skillRequirements>
+        <Cooking>2</Cooking>
+    </skillRequirements>
+  </RecipeDef>
+
+
+  <RecipeDef Name="MakeAmbrosiaIcedTea">
+    <defName>MakeAmbrosiaTea</defName>
+    <label>make ambrosia tea x2</label>
+    <description>Make 2 cups of ambrosia tea, a calming beverage.</description>
+    <jobString>Making ambrosia tea.</jobString>
+    <workAmount>300</workAmount>
+    <workSpeedStat>CookSpeed</workSpeedStat>
+    <requiredGiverWorkType>Cooking</requiredGiverWorkType>
+    <effectWorking>Cook</effectWorking>
+    <soundWorking>Recipe_CookMeal</soundWorking>
+	<recipeUsers>
+	    <li>Campfire</li>
+		<li>ElectricStove</li>
+		<li>FueledStove</li>
+	</recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>Ambrosia</li>
+          </thingDefs>
+        </filter>
+        <count>3</count>
+      </li>
+    </ingredients>
+	<fixedIngredientFilter>
+      <thingDefs>
+        <li>Ambrosia</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+    <products>
+      <AmbrosiaTea>2</AmbrosiaTea>
+    </products>
+    <workSkill>Cooking</workSkill>
+	<skillRequirements>
+        <Cooking>2</Cooking>
+    </skillRequirements>
+  </RecipeDef>
+  
+</Defs>

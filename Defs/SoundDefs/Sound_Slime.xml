@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  
+  <SoundDef>
+    <defName>Pawn_Slime_Call</defName>  
+    <eventNames />
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Slime/Slime_call</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>12</min>        
+          <max>14</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9</min>
+          <max>1.0</max>
+        </pitchRange>      
+        <distRange>
+          <min>0</min>        
+          <max>65</max>
+        </distRange>
+      </li>
+    </subSounds>
+  </SoundDef>
+  
+  <SoundDef>
+    <defName>Pawn_Slime_Wound</defName>  
+    <eventNames /> 
+    <context>MapOnly</context>
+    <subSounds>
+      <li>
+        <grains>
+          <li Class="AudioGrain_Clip">
+            <clipPath>Slime/Slime_wound</clipPath>
+          </li>
+        </grains>      
+        <volumeRange>
+          <min>12</min>        
+          <max>16</max>
+        </volumeRange>      
+        <pitchRange>
+          <min>0.9311765</min>        
+          <max>1.091765</max>
+        </pitchRange>      
+        <distRange>
+          <min>0</min>        
+          <max>80</max>
+        </distRange>    
+        <sustainLoop>False</sustainLoop>
+      </li>
+    </subSounds>
+  </SoundDef>
+
+</Defs>

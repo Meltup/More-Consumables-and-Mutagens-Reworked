@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BasePawn" Name="SlimeThingBase" Abstract="True">
+    <statBases>
+      <Flammability>1.0</Flammability>
+      <LeatherAmount>0</LeatherAmount>
+    </statBases>
+    <race>
+      <thinkTreeMain>Animal</thinkTreeMain>
+      <thinkTreeConstant>AnimalConstant</thinkTreeConstant>
+      <hasGenders>true</hasGenders>
+      <nameGenerator>NamerAnimalGenericMale</nameGenerator>
+      <nameGeneratorFemale>NamerAnimalGenericFemale</nameGeneratorFemale>
+      <manhunterOnDamageChance>0.0125</manhunterOnDamageChance>
+      <manhunterOnTameFailChance>0.003</manhunterOnTameFailChance>
+      <nameOnNuzzleChance>0.5</nameOnNuzzleChance>
+    </race>
+    <recipes>
+	  <li>ExciseCarcinoma</li>
+      <li>RemoveBodyPart</li>
+      <li>Euthanize</li>
+      <li>Anesthetize</li>
+    </recipes>
+  </ThingDef>
+
+  <ThingDef ParentName="SlimeThingBase">
+    <defName>CMSlime</defName>
+    <label>slime</label>
+    <description>A sentient glob made from mutagenic chemicals, it grows rapidly and constantly seeks living matter to assimilate.</description>
+    <statBases>
+      <MoveSpeed>1.76</MoveSpeed>
+      <ComfyTemperatureMin>-65</ComfyTemperatureMin>
+      <MarketValue>400</MarketValue>
+	  <MeatAmount>0</MeatAmount>
+	  <LeatherAmount>0</LeatherAmount>
+	  <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+	  <ToxicSensitivity>0</ToxicSensitivity>
+	  <EatingSpeed>5</EatingSpeed>
+	  <MeleeDodgeChance>1.2</MeleeDodgeChance>
+	  <ImmunityGainSpeed>5</ImmunityGainSpeed>
+    </statBases>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>18</power>
+        <cooldownTime>1.85</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>21</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_EggLayer">
+	    <eggUnfertilizedDef>EggSlimeUnfertilized</eggUnfertilizedDef>
+        <eggFertilizedDef>EggSlimeFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>15.0</eggLayIntervalDays>
+        <eggCountRange>1</eggCountRange>
+      </li>
+	  <li Class="CompProperties_Milkable">
+        <milkDef>SlimeGel</milkDef>
+        <milkIntervalDays>5</milkIntervalDays>
+        <milkAmount>5</milkAmount>
+      </li>
+    </comps>
+    <race>
+      <body>CMSlime</body>
+      <predator>true</predator>
+      <baseBodySize>2.5</baseBodySize>
+      <baseHungerRate>5.0</baseHungerRate>
+      <baseHealthScale>10</baseHealthScale>
+	  <needsRest>false</needsRest>
+      <foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
+      <useMeatFrom>Megaspider</useMeatFrom>
+      <trainability>Intermediate</trainability>
+      <wildness>0.99</wildness>
+      <manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.6</manhunterOnDamageChance>
+      <gestationPeriodDays>17.5</gestationPeriodDays>
+      <nameOnTameChance>1</nameOnTameChance>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(3, 1)</li>
+          <li>(3.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>3</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.1</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>0.5</minAge>
+          <soundWounded>Pawn_Slime_Wound</soundWounded>
+          <soundDeath>Pawn_Slime_Wound</soundDeath>
+          <soundCall>Pawn_Slime_Call</soundCall>
+          <soundAngry>Pawn_Slime_Call</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+	  <hediffGiverSets>
+        <li>Slime</li>
+      </hediffGiverSets>
+    </race>
+	<butcherProducts>
+	  <SlimeGlob>20</SlimeGlob>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>CMSlime</defName>
+    <label>slime</label>
+    <race>CMSlime</race>
+    <combatPower>250</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Slime/Slime</texPath>
+          <drawSize>0.7</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Slime/DessicatedSlime</texPath>
+          <drawSize>0.7</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Slime/Slime</texPath>
+          <drawSize>1.2</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Slime/DessicatedSlime</texPath>
+          <drawSize>1.2</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/Slime/Slime</texPath>
+          <drawSize>2.0</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/Slime/DessicatedSlime</texPath>
+          <drawSize>2.0</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

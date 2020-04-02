@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--=============================== Tier 3: Hi-tech research bench ===================================-->
+
+	<ResearchTabDef>
+		<defName>MutagensAndConsumables</defName>
+		<label>Mutagens and Consumables</label>
+	</ResearchTabDef>
+	
+	<ResearchProjectDef>
+		<defName>OracaliumProcessing</defName>
+		<label>oracalium processing</label>
+		<description>Prepare and process psychoid leaves with medicine into oracalium, a herb drug used for divine rituals.</description>
+		<baseCost>600</baseCost>
+		<tab>MutagensAndConsumables</tab>
+		<techLevel>Neolithic</techLevel>
+		<prerequisites>
+			<li>PsychoidBrewing</li>
+		</prerequisites>
+		<researchViewX>0</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>	
+	
+	<ResearchProjectDef>
+		<defName>MutagenOne</defName>
+		<label>catalyst serum</label>
+		<description>Learn how to make catalyst serum.\n\nCatalyst serum is a special solution embedded in some rancid meat. It can be created at the drug lab. If you keep catalyst serum safe and undisturbed, the catalyst serum will eventually break down into a baby slime. Slimes are ravenous creatures that will tirelessly consume and assimilate matter. Killing slimes will yield slime globs which are necessary for making homemade mutagens.</description>
+		<baseCost>1200</baseCost>
+		<tab>MutagensAndConsumables</tab>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>MedicineProduction</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchViewX>1</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+	
+	<ResearchProjectDef>
+		<defName>MutagenTwo</defName>
+		<label>mutagen basics</label>
+		<description>Learn how to make mutagenic slurries, homemade mutagens.\n\nMutagenic slurries are a very random mutagen that fit a lot of mutations into one consumable, making it very risky but very rewarding. Beware that the mutation phases are worse when consuming the slurry.</description>
+		<baseCost>1600</baseCost>
+		<tab>MutagensAndConsumables</tab>
+		<techLevel>Industrial</techLevel>
+		<prerequisites>
+			<li>MutagenOne</li>
+		</prerequisites>
+		<requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+		<requiredResearchFacilities>
+			<li>MultiAnalyzer</li>
+		</requiredResearchFacilities>
+		<researchViewX>2</researchViewX>
+		<researchViewY>0</researchViewY>
+	</ResearchProjectDef>
+
+</Defs>

@@ -1,0 +1,377 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Igni</defName>
+    <label>igni</label>
+    <description>A red pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversabily. Originally designed and mass produced to enhance manual labor in workers, it promptly received a ban on various worlds when unintended mutations started popping up.</description>
+	<descriptionHyperlinks>
+      <HediffDef>IgniHigh</HediffDef>
+	  <HediffDef>UrsaSlow</HediffDef>
+	  <HediffDef>IgniArm</HediffDef>
+      <HediffDef>IgniRage</HediffDef>
+      <HediffDef>IgniWarm</HediffDef>
+      <HediffDef>IgniCore</HediffDef>
+      <HediffDef>IgniFurnace</HediffDef>
+	  <HediffDef>IgniStrongBack</HediffDef>
+	  <HediffDef>SlurryStrong</HediffDef>
+	  <HediffDef>Asthma</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Igni</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MarketValue>415</MarketValue>
+	  <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>IgniHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+		<addictiveness>0</addictiveness>
+        <needLevelOffset>1</needLevelOffset>
+        <listOrder>1950</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!-- mutations -->
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>IgniSpeed</defName>
+    <label>graceful</label>
+    <description>Mutation that has resulted in pawn becoming faster and always moving with certain elegance and grace. Mutually exclusive with ponderous mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Ursa</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+		  <MoveSpeed>0.24</MoveSpeed>
+        </statOffsets>
+		<makeImmuneTo>
+          <li>UrsaSlow</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>IgniRage</defName>
+    <label>rage</label>
+    <description>Mutation that has resulted in brain activities becoming focused on negative emotions. Mutually exclusive with calm mutation.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <painFactor>0.85</painFactor>
+		<socialFightChanceFactor>1.75</socialFightChanceFactor>
+		<statOffsets>
+		  <MentalBreakThreshold>0.04</MentalBreakThreshold>
+        </statOffsets>
+		<makeImmuneTo>
+          <li>SilCalm</li>
+        </makeImmuneTo>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>IgniWarm</defName>
+    <label>warmth</label>
+    <description>Mutation that has resulted in body producing significantly more heat.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <statOffsets>
+		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+		  <ComfyTemperatureMax>-4</ComfyTemperatureMax>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>IgniFurnace</defName>
+    <label>furnace</label>
+    <description>Mutation that has resulted in acceleration of stomach functions.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <restFallFactor>0.8</restFallFactor>
+        <hungerRateFactor>1.3</hungerRateFactor>
+		<statOffsets>
+		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
+        </statOffsets>
+		<capMods>
+            <li>
+               <capacity>Eating</capacity>
+               <offset>0.5</offset>
+            </li>
+         </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationPartBase">
+      <defName>IgniArm</defName>
+      <label>plated arm</label>
+      <description>Mutation that has resulted in arm developing a heavy plating. It allows to use arm as a good albeit slow weapon.</description>
+	  <descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+      </descriptionHyperlinks>
+      <addedPartProps>
+         <partEfficiency>1.0</partEfficiency>
+         <solid>true</solid>
+      </addedPartProps>
+      <stages>
+		<li>
+		  <statOffsets>
+		    <ArmorRating_Sharp>0.1</ArmorRating_Sharp>
+			<ArmorRating_Blunt>0.06</ArmorRating_Blunt>
+          </statOffsets>
+          <capMods>
+            <li>
+               <capacity>Manipulation</capacity>
+               <offset>-0.075</offset>
+            </li>
+         </capMods>
+		</li>	 
+      </stages>
+	  <comps>
+        <li Class="HediffCompProperties_VerbGiver">
+		    <tools>
+      		      <li>
+      		        <capacities>
+      		            <li>Blunt</li>
+                        <li>Poke</li>
+      		        </capacities>
+      		        <power>12</power>
+      		        <cooldownTime>2.5</cooldownTime>
+      		        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
+    		      </li>
+    	    </tools>
+         </li>
+      </comps>
+   </HediffDef>
+   
+   <HediffDef ParentName="CrystalDrugMutationPartBase">
+      <defName>IgniCore</defName>
+      <label>ignition</label>
+      <description>Mutation that has resulted in drastic increase of heart's durability and activity. Mutually exclusive with withering mutation.</description>
+	  <descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+      </descriptionHyperlinks>
+      <addedPartProps>
+         <partEfficiency>1.3</partEfficiency>
+         <solid>true</solid>
+      </addedPartProps>
+      <stages>
+		<li>
+         <capMods>
+            <li>
+               <capacity>Moving</capacity>
+               <offset>0.1</offset>
+            </li>
+         </capMods>
+		 <makeImmuneTo>
+          <li>SlurryWithering</li>
+         </makeImmuneTo>
+		</li>	 
+      </stages>
+   </HediffDef>
+   
+   <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>IgniStrongBack</defName>
+    <label>strong back</label>
+    <description>Mutation that has resulted in reinforcement of back muscles.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Igni</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <statOffsets>
+		  <CarryingCapacity>25</CarryingCapacity>
+        </statOffsets>
+		<capMods>
+            <li>
+               <capacity>Moving</capacity>
+               <offset>0.1</offset>
+            </li>
+         </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+  
+
+  <!-- Mutation Phase -->
+  
+  <HediffDef>
+    <defName>IgniHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>mutagenic reaction (igni)</label>
+    <description>Active mutagenic reaction in the body.</description>
+    <defaultLabelColor>(179,86,132)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.30</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+	    <li>
+		  <label>receding</label>
+          <minSeverity>0</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+        <li>
+		  <label>active</label>
+		  <minSeverity>0.35</minSeverity>
+          <painFactor>1.6</painFactor>
+		  <hungerRateFactor>1.6</hungerRateFactor>
+		  <vomitMtbDays>3</vomitMtbDays>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.35</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.30</offset>
+            </li>
+			<li>
+              <capacity>Sight</capacity>
+              <offset>-0.20</offset>
+            </li>
+			<li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.40</offset>
+            </li>
+          </capMods>
+		  <hediffGivers>
+            <li Class="HediffGiver_Random">
+              <hediff>UrsaSlow</hediff>
+              <mtbDays>5</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniArm</hediff>
+              <mtbDays>6</mtbDays>
+			  <partsToAffect>
+                <li>Arm</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniRage</hediff>
+              <mtbDays>7</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniWarm</hediff>
+              <mtbDays>7</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniCore</hediff>
+              <mtbDays>8</mtbDays>
+			  <partsToAffect>
+                <li>Heart</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniFurnace</hediff>
+              <mtbDays>9</mtbDays>
+			  <partsToAffect>
+                <li>Stomach</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>IgniStrongBack</hediff>
+              <mtbDays>9</mtbDays>
+			  <partsToAffect>
+                <li>Spine</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SlurryStrong</hediff>
+              <mtbDays>12</mtbDays>
+			  <partsToAffect>
+                <li>Arm</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>Asthma</hediff>
+              <mtbDays>13</mtbDays>
+			  <partsToAffect>
+                <li>Lung</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+          </hediffGivers>
+        </li>
+		<li>
+		  <label>initial</label>
+          <minSeverity>0.85</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+      </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>IgniReaction</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>IgniHigh</hediff>
+    <stages>
+	  <li>
+        <label>mutagenic reaction (igni)</label>
+        <description>My body doesn't feel right.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>mutagenic reaction (igni)</label>
+        <description>My insides feel like they are on fire!</description>
+        <baseMoodEffect>-25</baseMoodEffect>
+      </li>
+	  <li>
+        <label>mutagenic reaction (igni)</label>
+        <description>I am really uneasy.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>

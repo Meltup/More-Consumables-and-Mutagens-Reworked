@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+ 
+  <HediffDef Name="CrystalDrugLongTermBase" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass>
+	<isBad>false</isBad>
+    <defaultLabelColor>(179,144,212)</defaultLabelColor>
+    <maxSeverity>1.0</maxSeverity>
+    <scenarioCanAdd>true</scenarioCanAdd>
+  </HediffDef>
+  
+  <HediffDef Name="CrystalDrugMutationBase" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass>
+	<isBad>false</isBad>
+    <defaultLabelColor>(232,117,35)</defaultLabelColor>
+    <maxSeverity>1.0</maxSeverity>
+	<initialSeverity>0.5</initialSeverity>
+    <scenarioCanAdd>true</scenarioCanAdd>
+	<comps>
+    <li Class="HediffCompProperties_Immunizable"></li>
+    </comps>
+  </HediffDef>
+  
+  <HediffDef Name="CrystalDrugMutationPartBase" Abstract="True">
+    <hediffClass>Hediff_AddedPart</hediffClass>
+    <isBad>false</isBad>
+    <defaultLabelColor>(232,117,35)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+	<comps>
+    <li Class="HediffCompProperties_Immunizable"></li>
+    </comps>
+  </HediffDef>
+  
+</Defs>

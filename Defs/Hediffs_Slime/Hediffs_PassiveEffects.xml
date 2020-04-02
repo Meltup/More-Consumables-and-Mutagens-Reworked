@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <HediffDef Name="SlimePassiveBase" Abstract="True">
+    <hediffClass>HediffWithComps</hediffClass>
+    <defaultLabelColor>(0.66, 0.6, 0.84)</defaultLabelColor>
+    <isBad>false</isBad>
+  </HediffDef>
+  
+
+	<HediffDef ParentName="SlimePassiveBase">
+		<defName>SlimePassive</defName>
+		<label>slime resistances</label>
+		<description>slime resistances</description>
+		<stages>
+			<li>
+			  <painFactor>0</painFactor>
+			  <restFallFactor>0</restFallFactor>
+			  <capMods>
+                <li>
+                  <capacity>Consciousness</capacity>
+                  <setMax>1</setMax>
+				  <offset>50</offset>
+                </li>
+			    <li>
+                  <capacity>Moving</capacity>
+                  <setMax>1</setMax>
+				  <offset>50</offset>
+                </li>
+				<li>
+                  <capacity>Manipulation</capacity>
+                  <setMax>1</setMax>
+				  <offset>50</offset>
+                </li>
+				<li>
+                  <capacity>Sight</capacity>
+                  <setMax>1</setMax>
+				  <offset>50</offset>
+                </li>
+				<li>
+                  <capacity>Eating</capacity>
+                  <setMax>1</setMax>
+				  <offset>50</offset>
+                </li>
+				<li>
+                  <capacity>Metabolism</capacity>
+                  <setMax>1</setMax>
+				  <offset>50</offset>
+                </li>
+			  </capMods>
+			</li>
+		</stages>
+	</HediffDef>
+
+</Defs>

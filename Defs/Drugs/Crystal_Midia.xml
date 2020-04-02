@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="DrugPillBase">
+    <defName>Midia</defName>
+    <label>midia</label>
+    <description>A purple pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversibly. Midia is known as one of the earliest mind altering mutagens that was proven to be safe enough for specialized use.</description>
+	<descriptionHyperlinks>
+      <HediffDef>MidiaHigh</HediffDef>
+	  <HediffDef>MidiaBlur</HediffDef>
+	  <HediffDef>MidiaSmart</HediffDef>
+      <HediffDef>MidiaForget</HediffDef>
+      <HediffDef>MidiaRough</HediffDef>
+      <HediffDef>MidiaKeen</HediffDef>
+      <HediffDef>MidiaAbsent</HediffDef>
+	  <HediffDef>SlurryAgile</HediffDef>
+    </descriptionHyperlinks>
+    <graphicData>
+      <texPath>Things/Midia</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <rotatable>false</rotatable>
+    <statBases>
+      <MarketValue>415</MarketValue>
+	  <Mass>0.05</Mass>
+    </statBases>
+    <techLevel>Spacer</techLevel>
+    <ingestible>
+      <drugCategory>Medical</drugCategory>
+      <outcomeDoers>
+        <li Class="IngestionOutcomeDoer_GiveHediff">
+          <hediffDef>MidiaHigh</hediffDef>
+          <severity>1.0</severity>
+        </li>
+      </outcomeDoers>
+    </ingestible>
+    <comps>
+      <li Class="CompProperties_Drug">
+		<addictiveness>0</addictiveness>
+        <needLevelOffset>1</needLevelOffset>
+        <listOrder>1960</listOrder>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <!-- mutations -->
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MidiaSmart</defName>
+    <label>receptive</label>
+    <description>Mutation that has resulted in boost of brain cognitive abilities.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Midia</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <statOffsets>
+          <GlobalLearningFactor>0.85</GlobalLearningFactor>
+		  <MentalBreakThreshold>0.10</MentalBreakThreshold>
+		</statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MidiaForget</defName>
+    <label>forgetful</label>
+    <description>Mutation that has resulted in damage of memory functions.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Midia</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+	    <forgetMemoryThoughtMtbDays>7</forgetMemoryThoughtMtbDays>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MidiaBlur</defName>
+    <label>empty eye</label>
+    <description>Mutation that has resulted in eye losing its visual structure. Looks terrifying.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Midia</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+	  <li>
+	    <statOffsets>
+            <SocialImpact>-0.15</SocialImpact>
+        </statOffsets>
+        <capMods>
+		  <li>
+		    <capacity>Sight</capacity>
+		    <offset>-0.10</offset>
+		  </li>
+	    </capMods>
+	  </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MidiaRough</defName>
+    <label>rough voice</label>
+    <description>Mutation that has resulted in damage of vocal cords.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Myrol</ThingDef>
+	    <ThingDef>Midia</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+          <SocialImpact>-0.15</SocialImpact>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MidiaKeen</defName>
+    <label>impatient</label>
+    <description>Mutation that has resulted in change of shooting acitivies.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Midia</ThingDef>
+		<ThingDef>MutagenSlurry</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <statOffsets>
+          <AimingDelayFactor>-0.35</AimingDelayFactor>
+        </statOffsets>
+      </li>
+    </stages>
+  </HediffDef>
+  
+  <HediffDef ParentName="CrystalDrugMutationBase">
+    <defName>MidiaAbsent</defName>
+    <label>absent</label>
+    <description>Mutation that has resulted in damage of perception functions.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Midia</ThingDef>
+    </descriptionHyperlinks>
+    <stages>
+      <li>
+        <capMods>
+          <li>
+            <capacity>Consciousness</capacity>
+            <offset>-0.2</offset>
+          </li>
+        </capMods>
+      </li>
+    </stages>
+  </HediffDef>
+
+  <!-- Mutation phase -->
+  
+  <HediffDef>
+    <defName>MidiaHigh</defName>
+    <hediffClass>HediffWithComps</hediffClass>
+    <label>mutagenic reaction (midia)</label>
+    <description>Active mutagenic reaction in the body.</description>
+	<descriptionHyperlinks>
+	    <ThingDef>Midia</ThingDef>
+    </descriptionHyperlinks>
+    <defaultLabelColor>(179,86,132)</defaultLabelColor>
+    <scenarioCanAdd>true</scenarioCanAdd>
+    <maxSeverity>1.0</maxSeverity>
+	<isBad>false</isBad>
+    <comps>
+      <li Class="HediffCompProperties_SeverityPerDay">
+        <severityPerDay>-0.30</severityPerDay>
+      </li>
+    </comps>
+      <stages>
+	    <li>
+		  <label>receding</label>
+          <minSeverity>0</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+			<li>
+              <capacity>Moving</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+        <li>
+		  <label>active</label>
+		  <minSeverity>0.35</minSeverity>
+          <painFactor>1.6</painFactor>
+		  <hungerRateFactor>1.6</hungerRateFactor>
+		  <vomitMtbDays>3</vomitMtbDays>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.25</offset>
+            </li>
+            <li>
+              <capacity>Moving</capacity>
+              <offset>-0.20</offset>
+            </li>
+			<li>
+              <capacity>Sight</capacity>
+              <offset>-0.15</offset>
+            </li>
+			<li>
+              <capacity>Manipulation</capacity>
+              <offset>-0.20</offset>
+            </li>
+          </capMods>
+		  <hediffGivers>
+		    <li Class="HediffGiver_Random">
+              <hediff>MidiaBlur</hediff>
+              <mtbDays>7</mtbDays>
+			  <partsToAffect>
+                <li>Eye</li>
+              </partsToAffect>
+			  <countToAffect>2</countToAffect>
+            </li>
+            <li Class="HediffGiver_Random">
+              <hediff>MidiaSmart</hediff>
+              <mtbDays>7</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MidiaForget</hediff>
+              <mtbDays>8</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MidiaRough</hediff>
+              <mtbDays>8</mtbDays>
+			  <partsToAffect>
+                <li>Neck</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MidiaKeen</hediff>
+              <mtbDays>8</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MidiaAbsent</hediff>
+              <mtbDays>10</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>SlurryAgile</hediff>
+              <mtbDays>10</mtbDays>
+            </li>
+          </hediffGivers>
+        </li>
+		<li>
+		  <label>initial</label>
+          <minSeverity>0.85</minSeverity>
+          <capMods>
+            <li>
+              <capacity>Consciousness</capacity>
+              <offset>-0.05</offset>
+            </li>
+          </capMods>
+		</li>
+      </stages>
+  </HediffDef>
+  
+  <ThoughtDef>
+    <defName>MidiaReaction</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>MidiaHigh</hediff>
+    <stages>
+	  <li>
+        <label>mutagenic reaction (midia)</label>
+        <description>My body doesn't feel right.</description>
+        <baseMoodEffect>-6</baseMoodEffect>
+      </li>
+      <li>
+        <label>mutagenic reaction (midia)</label>
+        <description>My head really hurts!</description>
+        <baseMoodEffect>-18</baseMoodEffect>
+      </li>
+	  <li>
+        <label>mutagenic reaction (midia)</label>
+        <description>I am really uneasy.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef>
+    <defName>MidiaHappy</defName>
+    <workerClass>ThoughtWorker_Hediff</workerClass>
+    <hediff>MidiaAbsent</hediff>
+    <stages>
+      <li>
+        <label>absent euphoria</label>
+        <description>My mind feels like it is in a happy place, away from my life.</description>
+        <baseMoodEffect>8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+</Defs>
