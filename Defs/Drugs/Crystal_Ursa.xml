@@ -11,13 +11,13 @@
 	  <HediffDef>IgniSpeed</HediffDef>
       <HediffDef>UrsaClaws</HediffDef>
       <HediffDef>UrsaFur</HediffDef>
+	  <HediffDef>UrsaWild</HediffDef>
       <HediffDef>SlurryEyes</HediffDef>
-      <HediffDef>UrsaWild</HediffDef>
 	  <HediffDef>UrsaDisfigured</HediffDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Ursa</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <rotatable>false</rotatable>
     <statBases>
@@ -73,9 +73,12 @@
     </descriptionHyperlinks>
     <stages>
       <li>
-        <statOffsets>
-		  <MoveSpeed>-0.16</MoveSpeed>
-        </statOffsets>
+        <capMods>
+            <li>
+               <capacity>Moving</capacity>
+               <offset>-0.16</offset>
+            </li>
+        </capMods>
 		<makeImmuneTo>
           <li>IgniSpeed</li>
         </makeImmuneTo>
@@ -108,7 +111,7 @@
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>UrsaDisfigured</defName>
     <label>mutilated</label>
-    <description>Mutation that has resulted in change of appearance beyond recognition.</description>
+    <description>Mutation that has resulted in horrifying change of appearance.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>Ursa</ThingDef>
 		<ThingDef>MutagenSlurry</ThingDef>
@@ -116,7 +119,7 @@
     <stages>
       <li>
         <statOffsets>
-          <PawnBeauty>-1</PawnBeauty>
+          <PawnBeauty>-2</PawnBeauty>
         </statOffsets>
       </li>
     </stages>
@@ -274,23 +277,23 @@
             </li>
 			<li Class="HediffGiver_Random">
               <hediff>UrsaFur</hediff>
-              <mtbDays>8</mtbDays>
+              <mtbDays>9</mtbDays>
             </li>
 			<li Class="HediffGiver_Random">
-              <hediff>SlurryEyes</hediff>
+              <hediff>UrsaWild</hediff>
               <mtbDays>9</mtbDays>
+			  <partsToAffect>
+                <li>Brain</li>
+              </partsToAffect>
+			</li>
+			<li Class="HediffGiver_Random">
+              <hediff>SlurryEyes</hediff>
+              <mtbDays>11</mtbDays>
 			  <partsToAffect>
                 <li>Eye</li>
               </partsToAffect>
 			  <countToAffect>2</countToAffect>
             </li>
-			<li Class="HediffGiver_Random">
-              <hediff>UrsaWild</hediff>
-              <mtbDays>10</mtbDays>
-			  <partsToAffect>
-                <li>Brain</li>
-              </partsToAffect>
-			</li>
 			<li Class="HediffGiver_Random">
               <hediff>UrsaDisfigured</hediff>
               <mtbDays>13</mtbDays>

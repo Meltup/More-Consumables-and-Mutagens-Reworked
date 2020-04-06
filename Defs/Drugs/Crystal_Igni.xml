@@ -19,7 +19,7 @@
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Igni</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <rotatable>false</rotatable>
     <statBases>
@@ -49,17 +49,23 @@
   
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>IgniSpeed</defName>
-    <label>graceful</label>
-    <description>Mutation that has resulted in pawn becoming faster and always moving with certain elegance and grace. Mutually exclusive with ponderous mutation.</description>
+    <label>elegant</label>
+    <description>Mutation that has resulted in development of improved movement coordination and certain carnivorous grace. Mutually exclusive with ponderous mutation.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>Ursa</ThingDef>
 		<ThingDef>MutagenSlurry</ThingDef>
     </descriptionHyperlinks>
     <stages>
       <li>
-        <statOffsets>
-		  <MoveSpeed>0.24</MoveSpeed>
+	    <statOffsets>
+		  <PawnBeauty>1</PawnBeauty>
         </statOffsets>
+	    <capMods>
+            <li>
+               <capacity>Moving</capacity>
+               <offset>0.1</offset>
+            </li>
+        </capMods>
 		<makeImmuneTo>
           <li>UrsaSlow</li>
         </makeImmuneTo>
@@ -69,17 +75,17 @@
   
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>IgniRage</defName>
-    <label>rage</label>
-    <description>Mutation that has resulted in brain activities becoming focused on negative emotions. Mutually exclusive with calm mutation.</description>
+    <label>rageful</label>
+    <description>Mutation that has resulted in brain activities becoming focused on negative emotions. Mutually exclusive with serene mutation.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>Igni</ThingDef>
     </descriptionHyperlinks>
     <stages>
       <li>
 	    <painFactor>0.85</painFactor>
-		<socialFightChanceFactor>1.75</socialFightChanceFactor>
+		<socialFightChanceFactor>1.5</socialFightChanceFactor>
 		<statOffsets>
-		  <MentalBreakThreshold>0.04</MentalBreakThreshold>
+		  <MentalBreakThreshold>0.06</MentalBreakThreshold>
         </statOffsets>
 		<makeImmuneTo>
           <li>SilCalm</li>

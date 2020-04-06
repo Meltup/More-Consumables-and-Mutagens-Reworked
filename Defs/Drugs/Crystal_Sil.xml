@@ -19,7 +19,7 @@
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Sil</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <rotatable>false</rotatable>
     <statBases>
@@ -114,7 +114,7 @@
         <statOffsets>
 		  <ArmorRating_Sharp>0.20</ArmorRating_Sharp>
 		  <ArmorRating_Blunt>0.075</ArmorRating_Blunt>
-		  <MoveSpeed>-0.1</MoveSpeed>
+		  <MoveSpeed>-0.2</MoveSpeed>
         </statOffsets>
 		<makeImmuneTo>
           <li>UrsaFur</li>
@@ -139,6 +139,7 @@
       <stages>
 		<li>
           <statOffsets>
+		    <PawnBeauty>1</PawnBeauty>
             <SocialImpact>0.1</SocialImpact>
           </statOffsets>
 		  <capMods>
@@ -187,7 +188,7 @@
   
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>SilCalm</defName>
-    <label>calm</label>
+    <label>serene</label>
     <description>Mutation that has resulted in brain activities becoming focused on positive emotions. Mutually exclusive with rage mutation.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>Sil</ThingDef>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Patch>
+
+    <Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>VGP Vegetable Garden</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+		    <li Class="PatchOperationReplace">
+                <xpath>/Defs/RecipeDef[defName="MakeHearthBrew"]/ingredients</xpath>
+                <value>
+				    <ingredients>
+    				  <li>
+    			        <filter>
+    			          <categories>
+				    		<li>FruitFoodRaw</li>
+				    	  </categories>
+    			        </filter>
+    			        <count>20</count>
+    			      </li>
+				      <li>
+     			        <filter>
+    			          <thingDefs>
+    			            <li>Beer</li>
+    			          </thingDefs>
+    			        </filter>
+    			        <count>1</count>
+    			      </li>
+   			        </ingredients>
+				</value>
+    		</li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/RecipeDef[defName="MakeHearthBrew"]/fixedIngredientFilter</xpath>
+                <value>
+				    <fixedIngredientFilter>
+    			        <categories>
+				    		<li>FruitFoodRaw</li>
+				    	</categories>
+				    	<thingDefs>
+    			            <li>Beer</li>
+    			        </thingDefs>
+    			        <specialFiltersToDisallow>
+    			            <li>AllowRotten</li>
+    			        </specialFiltersToDisallow>
+   			        </fixedIngredientFilter>
+				</value>
+    		</li>			
+    	</operations>
+    </match>
+    </Operation>
+</Patch>

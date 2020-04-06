@@ -82,7 +82,7 @@
 	<tradeability>Buyable</tradeability>
 	<comps>
       <li Class="CompProperties_Rottable">
-        <daysToRotStart>0.75</daysToRotStart>  <!-- short rot time, you want to make them as needed not store them -->
+        <daysToRotStart>1.5</daysToRotStart>  <!-- short rot time, you want to make them as needed not store them -->
         <rotDestroys>true</rotDestroys>
       </li>
     </comps>

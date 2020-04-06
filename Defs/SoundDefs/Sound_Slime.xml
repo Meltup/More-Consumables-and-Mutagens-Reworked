@@ -12,18 +12,9 @@
             <clipPath>Slime/Slime_call</clipPath>
           </li>
         </grains>      
-        <volumeRange>
-          <min>12</min>        
-          <max>14</max>
-        </volumeRange>      
-        <pitchRange>
-          <min>0.9</min>
-          <max>1.0</max>
-        </pitchRange>      
-        <distRange>
-          <min>0</min>        
-          <max>65</max>
-        </distRange>
+        <volumeRange>16~17</volumeRange>      
+        <pitchRange>0.9311765~1.091765</pitchRange>      
+        <distRange>0~70</distRange>  
       </li>
     </subSounds>
   </SoundDef>
@@ -39,18 +30,9 @@
             <clipPath>Slime/Slime_wound</clipPath>
           </li>
         </grains>      
-        <volumeRange>
-          <min>12</min>        
-          <max>16</max>
-        </volumeRange>      
-        <pitchRange>
-          <min>0.9311765</min>        
-          <max>1.091765</max>
-        </pitchRange>      
-        <distRange>
-          <min>0</min>        
-          <max>80</max>
-        </distRange>    
+        <volumeRange>16~17</volumeRange>      
+        <pitchRange>0.9311765~1.091765</pitchRange>      
+        <distRange>0~70</distRange>  
         <sustainLoop>False</sustainLoop>
       </li>
     </subSounds>

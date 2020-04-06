@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <RecipeDef Name="MakeHearthBrew">
+  <RecipeDef>
     <defName>MakeHearthBrew</defName>
     <label>make hearth brew x4</label>
     <description>Make 4 cups of hearth brew, a mildly alcoholic drink that warms the body.</description>
@@ -19,9 +19,9 @@
     <ingredients>
       <li>
         <filter>
-          <categories>
-			<li>FruitFoodRaw</li>
-		  </categories>
+          <thingDefs>
+            <li>RawBerries</li>
+          </thingDefs>
         </filter>
         <count>20</count>
       </li>
@@ -35,10 +35,8 @@
       </li>
     </ingredients>
 	<fixedIngredientFilter>
-        <categories>
-			<li>FruitFoodRaw</li>
-		</categories>
 		<thingDefs>
+		    <li>RawBerries</li>
             <li>Beer</li>
         </thingDefs>
         <specialFiltersToDisallow>
@@ -55,7 +53,7 @@
   </RecipeDef>
 
 
-  <RecipeDef Name="MakeAmbrosiaIcedTea">
+  <RecipeDef>
     <defName>MakeAmbrosiaTea</defName>
     <label>make ambrosia tea x2</label>
     <description>Make 2 cups of ambrosia tea, a calming beverage.</description>

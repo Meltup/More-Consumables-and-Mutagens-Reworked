@@ -1,0 +1,4 @@
+D:\RimworldMutationProject\Source\MutationsRemover\MutationsRemover\obj\Debug\MutationsRemover.dll
+D:\RimworldMutationProject\Source\MutationsRemover\MutationsRemover\obj\Debug\MutationsRemover.csprojAssemblyReference.cache
+D:\RimworldMutationProject\Source\MutationsRemover\MutationsRemover\obj\Debug\MutationsRemover.csproj.CoreCompileInputs.cache
+D:\RimworldMutationProject\Assemblies\MutationsRemover.dll

@@ -19,6 +19,7 @@
 	<comps>
     <li Class="HediffCompProperties_Immunizable"></li>
     </comps>
+	<everCurableByItem>false</everCurableByItem>
   </HediffDef>
   
   <HediffDef Name="CrystalDrugMutationPartBase" Abstract="True">
@@ -29,6 +30,7 @@
 	<comps>
     <li Class="HediffCompProperties_Immunizable"></li>
     </comps>
+	<everCurableByItem>false</everCurableByItem>
   </HediffDef>
   
 </Defs>

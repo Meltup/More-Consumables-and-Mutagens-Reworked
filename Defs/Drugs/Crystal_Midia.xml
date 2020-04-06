@@ -12,12 +12,12 @@
       <HediffDef>MidiaForget</HediffDef>
       <HediffDef>MidiaRough</HediffDef>
       <HediffDef>MidiaKeen</HediffDef>
-      <HediffDef>MidiaAbsent</HediffDef>
 	  <HediffDef>SlurryAgile</HediffDef>
+	  <HediffDef>MidiaAbsent</HediffDef>
     </descriptionHyperlinks>
     <graphicData>
       <texPath>Things/Midia</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_StackCount</graphicClass>
     </graphicData>
     <rotatable>false</rotatable>
     <statBases>
@@ -48,7 +48,7 @@
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>MidiaSmart</defName>
     <label>receptive</label>
-    <description>Mutation that has resulted in boost of brain cognitive abilities.</description>
+    <description>Mutation that has resulted in boost of brain's cognitive abilities.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>Midia</ThingDef>
     </descriptionHyperlinks>
@@ -76,7 +76,7 @@
     </stages>
   </HediffDef>
   
-  <HediffDef ParentName="CrystalDrugMutationBase">
+  <HediffDef ParentName="CrystalDrugMutationPartBase">
     <defName>MidiaBlur</defName>
     <label>empty eye</label>
     <description>Mutation that has resulted in eye losing its visual structure. Looks terrifying.</description>
@@ -84,17 +84,15 @@
 	    <ThingDef>Midia</ThingDef>
 		<ThingDef>MutagenSlurry</ThingDef>
     </descriptionHyperlinks>
+	<addedPartProps>
+         <partEfficiency>0.90</partEfficiency>
+         <solid>false</solid>
+      </addedPartProps>
     <stages>
 	  <li>
 	    <statOffsets>
             <SocialImpact>-0.15</SocialImpact>
         </statOffsets>
-        <capMods>
-		  <li>
-		    <capacity>Sight</capacity>
-		    <offset>-0.10</offset>
-		  </li>
-	    </capMods>
 	  </li>
     </stages>
   </HediffDef>
@@ -119,8 +117,8 @@
   
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>MidiaKeen</defName>
-    <label>impatient</label>
-    <description>Mutation that has resulted in change of shooting acitivies.</description>
+    <label>focused</label>
+    <description>Mutation that has resulted in development of improved aiming abilities.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>Midia</ThingDef>
 		<ThingDef>MutagenSlurry</ThingDef>
@@ -128,7 +126,8 @@
     <stages>
       <li>
         <statOffsets>
-          <AimingDelayFactor>-0.35</AimingDelayFactor>
+          <AimingDelayFactor>-0.3</AimingDelayFactor>
+		  <ShootingAccuracyPawn>3</ShootingAccuracyPawn>
         </statOffsets>
       </li>
     </stages>
@@ -249,15 +248,15 @@
               </partsToAffect>
             </li>
 			<li Class="HediffGiver_Random">
-              <hediff>MidiaAbsent</hediff>
+              <hediff>SlurryAgile</hediff>
               <mtbDays>10</mtbDays>
+            </li>
+			<li Class="HediffGiver_Random">
+              <hediff>MidiaAbsent</hediff>
+              <mtbDays>14</mtbDays>
 			  <partsToAffect>
                 <li>Brain</li>
               </partsToAffect>
-            </li>
-			<li Class="HediffGiver_Random">
-              <hediff>SlurryAgile</hediff>
-              <mtbDays>10</mtbDays>
             </li>
           </hediffGivers>
         </li>
