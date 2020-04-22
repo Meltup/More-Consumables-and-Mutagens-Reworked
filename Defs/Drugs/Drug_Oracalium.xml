@@ -13,7 +13,7 @@
     <graphicData>
       <texPath>Things/Oracalium</texPath>
       <graphicClass>Graphic_StackCount</graphicClass>
-	  <drawSize>0.75</drawSize>
+	  <!-- <drawSize>0.75</drawSize> -->
     </graphicData>
     <rotatable>false</rotatable>
     <statBases>
@@ -186,8 +186,8 @@
 
   <HediffDef ParentName="CrystalDrugLongTermBase">
     <defName>OracaliumLongTerm</defName>
-    <label>oracle psychic</label>
-    <description>oracle psychic</description>
+    <label>oracle vision</label>
+    <description>Long-term effect of oracalium that increases sensitivity of eyes.</description>
     <comps>
       <li Class="HediffCompProperties_SeverityPerDay">
         <severityPerDay>-0.01</severityPerDay>

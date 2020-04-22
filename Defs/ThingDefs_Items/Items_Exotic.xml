@@ -13,11 +13,43 @@
     </statBases>
     <tickerType>Rare</tickerType>
   </ThingDef>
+  
+  <ThingCategoryDef>
+      <defName>SlimeGlobs</defName>
+      <label>slime globs</label>
+      <parent>ResourcesRaw</parent>
+      <iconPath>Things/SlimeGlob</iconPath>
+      <resourceReadoutRoot>true</resourceReadoutRoot>
+    </ThingCategoryDef>
 
   <ThingDef ParentName="SlimeProductBase">
+    <defName>SlimeGlobRed</defName>
+    <label>slime glob (red)</label>
+    <description>Red glob extracted from a slain slime creature, used in mutagen recipes.</description>
+    <graphicData>
+      <texPath>Things/SlimeGlobRed</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>18</MarketValue>
+    </statBases>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>75</stackLimit>
+    <thingCategories>
+      <li>SlimeGlobs</li>
+    </thingCategories>
+	<comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>45</daysToRotStart>
+		<rotDestroys>true</rotDestroys>
+	  </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="SlimeProductBase">
     <defName>SlimeGlob</defName>
-    <label>slime glob</label>
-    <description>Glob extracted from a slain slime creature, used in mutagen recipes.</description>
+    <label>slime glob (green)</label>
+    <description>Green glob extracted from a slain slime creature, used in mutagen recipes.</description>
     <graphicData>
       <texPath>Things/SlimeGlob</texPath>
       <graphicClass>Graphic_Single</graphicClass>
@@ -28,11 +60,35 @@
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <stackLimit>75</stackLimit>
     <thingCategories>
-      <li>Items</li>
+      <li>SlimeGlobs</li>
     </thingCategories>
 	<comps>
       <li Class="CompProperties_Rottable">
         <daysToRotStart>60</daysToRotStart>
+		<rotDestroys>true</rotDestroys>
+	  </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef ParentName="SlimeProductBase">
+    <defName>SlimeGlobBlue</defName>
+    <label>slime glob (blue)</label>
+    <description>Blue glob extracted from a slain slime creature, used in mutagen recipes.</description>
+    <graphicData>
+      <texPath>Things/SlimeGlobBlue</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <statBases>
+      <MarketValue>22</MarketValue>
+    </statBases>
+    <resourceReadoutPriority>Middle</resourceReadoutPriority>
+    <stackLimit>75</stackLimit>
+    <thingCategories>
+      <li>SlimeGlobs</li>
+    </thingCategories>
+	<comps>
+      <li Class="CompProperties_Rottable">
+        <daysToRotStart>90</daysToRotStart>
 		<rotDestroys>true</rotDestroys>
 	  </li>
     </comps>
@@ -52,7 +108,7 @@
     <resourceReadoutPriority>Middle</resourceReadoutPriority>
     <stackLimit>50</stackLimit>
     <thingCategories>
-      <li>Items</li>
+      <li>ResourcesRaw</li>
     </thingCategories>
 	<comps>
       <li Class="CompProperties_Rottable">

@@ -13,14 +13,21 @@
         <hediff>Heatstroke</hediff>
       </li>
 	  
-	  <li Class="HediffGiver_Birthday">
+	  <li Class="HediffGiver_RandomAgeCurved">
         <hediff>SlimePassive</hediff>
-        <ageFractionChanceCurve>
+		<ageFractionMtbDaysCurve>
+          <points>
+            <li>(0.0, 0.01)</li>
+            <li>(0.5, 0.01)</li>
+            <li>(1, 0.01)</li>
+          </points>
+        </ageFractionMtbDaysCurve>
+        <!-- <ageFractionChanceCurve>
           <points>
             <li>(0, 1)</li>
             <li>(1, 1)</li>
           </points>
-        </ageFractionChanceCurve>
+        </ageFractionChanceCurve> -->
       </li>
 
     </hediffGivers>

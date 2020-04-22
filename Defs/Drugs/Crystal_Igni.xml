@@ -104,8 +104,8 @@
     <stages>
       <li>
 	    <statOffsets>
-		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
 		  <ComfyTemperatureMax>-4</ComfyTemperatureMax>
+		  <ComfyTemperatureMin>-10</ComfyTemperatureMin>
         </statOffsets>
       </li>
     </stages>
@@ -169,7 +169,7 @@
       		            <li>Blunt</li>
                         <li>Poke</li>
       		        </capacities>
-      		        <power>12</power>
+      		        <power>13</power>
       		        <cooldownTime>2.5</cooldownTime>
       		        <alwaysTreatAsWeapon>true</alwaysTreatAsWeapon>
     		      </li>
@@ -180,8 +180,8 @@
    
    <HediffDef ParentName="CrystalDrugMutationPartBase">
       <defName>IgniCore</defName>
-      <label>ignition</label>
-      <description>Mutation that has resulted in drastic increase of heart's durability and activity. Mutually exclusive with withering mutation.</description>
+      <label>ignited heart</label>
+      <description>Mutation that has resulted in drastic increase of heart's durability and activity. Mutually exclusive with withering heart mutation.</description>
 	  <descriptionHyperlinks>
 	    <ThingDef>Igni</ThingDef>
       </descriptionHyperlinks>

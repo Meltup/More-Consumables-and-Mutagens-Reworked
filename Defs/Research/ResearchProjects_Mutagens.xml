@@ -25,7 +25,7 @@
 	<ResearchProjectDef>
 		<defName>MutagenOne</defName>
 		<label>catalyst serum</label>
-		<description>Learn how to make catalyst serum.\n\nCatalyst serum is a special solution embedded in some rancid meat. It can be created at the drug lab. If you keep catalyst serum safe and undisturbed, the catalyst serum will eventually break down into a baby slime. Slimes are ravenous creatures that will tirelessly consume and assimilate matter. Killing slimes will yield slime globs which are necessary for making homemade mutagens.</description>
+		<description>Learn how to make catalyst serums.\n\nCatalyst serum is a special solution embedded into specific substance. It can be created at the drug lab. If you keep catalyst serum safe and undisturbed, the catalyst serum will eventually break down into a baby slime. Slimes are ravenous creatures that will tirelessly consume and assimilate matter. Killing slimes will yield slime globs which are necessary for making mutagens.</description>
 		<baseCost>1200</baseCost>
 		<tab>MutagensAndConsumables</tab>
 		<techLevel>Industrial</techLevel>
@@ -42,7 +42,7 @@
 	
 	<ResearchProjectDef>
 		<defName>MutagenTwo</defName>
-		<label>mutagen basics</label>
+		<label>mutagenic slurry</label>
 		<description>Learn how to make mutagenic slurries, homemade mutagens.\n\nMutagenic slurries are a very random mutagen that fit a lot of mutations into one consumable, making it very risky but very rewarding. Beware that the mutation phases are worse when consuming the slurry.</description>
 		<baseCost>1600</baseCost>
 		<tab>MutagensAndConsumables</tab>

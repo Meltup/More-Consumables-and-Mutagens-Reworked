@@ -1,28 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <ThingDef ParentName="BasePawn" Name="SlimeThingBase" Abstract="True">
-    <statBases>
-      <Flammability>1.0</Flammability>
-      <LeatherAmount>0</LeatherAmount>
-    </statBases>
-    <race>
-      <thinkTreeMain>Animal</thinkTreeMain>
-      <thinkTreeConstant>AnimalConstant</thinkTreeConstant>
-      <hasGenders>true</hasGenders>
-      <nameGenerator>NamerAnimalGenericMale</nameGenerator>
-      <nameGeneratorFemale>NamerAnimalGenericFemale</nameGeneratorFemale>
-    </race>
-    <recipes>
-	  <li>ExciseCarcinoma</li>
-      <li>RemoveBodyPart</li>
-      <li>Euthanize</li>
-      <li>Anesthetize</li>
-    </recipes>
-  </ThingDef>
-  
   <ThingDef ParentName="BaseFilth">
-    <defName>Filth_CMSlime</defName>
+    <defName>Filth_CMSlimeRed</defName>
     <label>slime fluid</label>
     <statBases>
       <Beauty>-25</Beauty>
@@ -30,7 +10,7 @@
     </statBases>
     <graphicData>
       <texPath>Things/Filth/Spatter</texPath>
-      <color>(64,139,94)</color>
+      <color>(185,0,0)</color>
     </graphicData>
     <filth>
       <rainWashes>true</rainWashes>
@@ -40,19 +20,19 @@
   </ThingDef>
 
   <ThingDef ParentName="SlimeThingBase">
-    <defName>CMSlime</defName>
-    <label>green slime</label>
-    <description>A sentient green glob made from mutagenic chemicals, it grows rapidly and constantly seeks digestible matter to assimilate.\n\nGreen slimes are the basic type of mutagenic slimes. They are able to consume any type of food, and their gel can be cooked into slime paste. Killing green slimes may be difficult due to their resistances.</description>
+    <defName>CMSlimeRed</defName>
+    <label>red slime</label>
+    <description>A sentient red glob made from mutagenic chemicals, it grows rapidly and constantly seeks living matter to assimilate.\n\nRed slimes are the most aggressive and dangerous mutagenic slimes. Consisting of highly volatile matter, they move relatively quick and burst out with a huge explosion upon death. As slimes are relatively recent human creation, local fauna does not recognize them as danger.</description>
     <statBases>
-      <MoveSpeed>1.76</MoveSpeed>
+      <MoveSpeed>3.52</MoveSpeed>
       <ComfyTemperatureMin>-65</ComfyTemperatureMin>
-      <MarketValue>400</MarketValue>
+      <MarketValue>240</MarketValue>
 	  <MeatAmount>0</MeatAmount>
 	  <LeatherAmount>0</LeatherAmount>
-	  <ArmorRating_Blunt>0.75</ArmorRating_Blunt>
-	  <ArmorRating_Sharp>0.25</ArmorRating_Sharp>
+	  <ArmorRating_Blunt>0.37</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.12</ArmorRating_Sharp>
 	  <ToxicSensitivity>0</ToxicSensitivity>
-	  <EatingSpeed>4</EatingSpeed>
+	  <EatingSpeed>5</EatingSpeed>
 	  <MeleeDodgeChance>1.2</MeleeDodgeChance>
 	  <ImmunityGainSpeed>5</ImmunityGainSpeed>
     </statBases>
@@ -62,14 +42,14 @@
         <capacities>
           <li>Blunt</li>
         </capacities>
-        <power>18</power>
-        <cooldownTime>1.85</cooldownTime>
+        <power>10</power>
+        <cooldownTime>1.4</cooldownTime>
         <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
         <surpriseAttack>
           <extraMeleeDamages>
             <li>
               <def>Stun</def>
-              <amount>21</amount>
+              <amount>10</amount>
             </li>
           </extraMeleeDamages>
         </surpriseAttack>
@@ -77,44 +57,47 @@
     </tools>
     <comps>
       <li Class="CompProperties_EggLayer">
-	    <eggUnfertilizedDef>EggSlimeUnfertilized</eggUnfertilizedDef>
-        <eggFertilizedDef>EggSlimeFertilized</eggFertilizedDef>
+	    <eggUnfertilizedDef>EggSlimeRedUnfertilized</eggUnfertilizedDef>
+        <eggFertilizedDef>EggSlimeRedFertilized</eggFertilizedDef>
         <eggFertilizationCountMax>1</eggFertilizationCountMax>
-        <eggLayIntervalDays>15.0</eggLayIntervalDays>
-        <eggCountRange>1</eggCountRange>
+        <eggLayIntervalDays>4.0</eggLayIntervalDays>
+        <eggCountRange>2~3</eggCountRange>
       </li>
 	  <li Class="CompProperties_Milkable">
-        <milkDef>SlimeGel</milkDef>
-        <milkIntervalDays>3</milkIntervalDays>
-        <milkAmount>8</milkAmount>
+        <milkDef>Chemfuel</milkDef>
+        <milkIntervalDays>1.5</milkIntervalDays>
+        <milkAmount>12</milkAmount>
 		<milkFemaleOnly>false</milkFemaleOnly>
       </li>
     </comps>
     <race>
       <body>CMSlime</body>
+	  <deathActionWorkerClass>DeathActionWorker_BigExplosion</deathActionWorkerClass>
+	  <executionRange>6</executionRange>
+	  <herdAnimal>true</herdAnimal>
       <predator>true</predator>
-      <baseBodySize>2.0</baseBodySize>
-      <baseHungerRate>4.0</baseHungerRate>
-      <baseHealthScale>9</baseHealthScale>
+      <baseBodySize>1.5</baseBodySize>
+      <baseHungerRate>5.0</baseHungerRate>
+      <baseHealthScale>3</baseHealthScale>
 	  <needsRest>false</needsRest>
-      <foodType>OmnivoreAnimal, OvivoreAnimal</foodType>
+      <foodType>CarnivoreAnimal, OvivoreAnimal</foodType>
 	  <fleshType>Insectoid</fleshType>
       <useMeatFrom>Megaspider</useMeatFrom>
-	  <bloodDef>Filth_CMSlime</bloodDef>
+	  <bloodDef>Filth_CMSlimeRed</bloodDef>
       <trainability>Intermediate</trainability>
-      <wildness>0.8</wildness>
-      <manhunterOnTameFailChance>0.05</manhunterOnTameFailChance>
-      <manhunterOnDamageChance>0.55</manhunterOnDamageChance>
-      <gestationPeriodDays>17.5</gestationPeriodDays>
+      <wildness>0.99</wildness>
+      <manhunterOnTameFailChance>0.25</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>1.0</manhunterOnDamageChance>
+      <gestationPeriodDays>5.0</gestationPeriodDays>
       <litterSizeCurve>
         <points>
           <li>(0.5, 0)</li>
           <li>(1, 1)</li>
-          <li>(3, 1)</li>
-          <li>(3.5, 0)</li>
+          <li>(5, 1)</li>
+          <li>(5.5, 0)</li>
         </points>
       </litterSizeCurve>
-      <lifeExpectancy>3</lifeExpectancy>
+      <lifeExpectancy>1.5</lifeExpectancy>
       <lifeStageAges>
         <li>
           <def>AnimalBaby</def>
@@ -122,11 +105,11 @@
         </li>
         <li>
           <def>AnimalJuvenile</def>
-          <minAge>0.1</minAge>
+          <minAge>0.05</minAge>
         </li>
         <li>
           <def>AnimalAdult</def>
-          <minAge>0.5</minAge>
+          <minAge>0.25</minAge>
           <soundWounded>Pawn_Slime_Wound</soundWounded>
           <soundDeath>Pawn_Slime_Wound</soundDeath>
           <soundCall>Pawn_Slime_Call</soundCall>
@@ -141,45 +124,45 @@
       </hediffGiverSets>
     </race>
 	<butcherProducts>
-	  <SlimeGlob>16</SlimeGlob>
+	  <SlimeGlobRed>12</SlimeGlobRed>
     </butcherProducts>
   </ThingDef>
 
   <PawnKindDef ParentName="AnimalKindBase">
-    <defName>CMSlime</defName>
-    <label>green slime</label>
-	<labelPlural>green slimes</labelPlural>
-    <race>CMSlime</race>
-    <combatPower>250</combatPower>
+    <defName>CMSlimeRed</defName>
+    <label>red slime</label>
+	<labelPlural>red slimes</labelPlural>
+    <race>CMSlimeRed</race>
+    <combatPower>140</combatPower>
     <lifeStages>
       <li>
         <bodyGraphicData>
-          <texPath>Things/Pawn/Slime/Slime</texPath>
-          <drawSize>0.7</drawSize>
+          <texPath>Things/Pawn/SlimeRed/SlimeRed</texPath>
+          <drawSize>0.5</drawSize>
         </bodyGraphicData>
         <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Slime/DessicatedSlime</texPath>
-          <drawSize>0.7</drawSize>
+          <texPath>Things/Pawn/SlimeRed/DessicatedSlimeRed</texPath>
+          <drawSize>0.5</drawSize>
         </dessicatedBodyGraphicData>
       </li>
       <li>
         <bodyGraphicData>
-          <texPath>Things/Pawn/Slime/Slime</texPath>
-          <drawSize>1.2</drawSize>
+          <texPath>Things/Pawn/SlimeRed/SlimeRed</texPath>
+          <drawSize>0.9</drawSize>
         </bodyGraphicData>
         <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Slime/DessicatedSlime</texPath>
-          <drawSize>1.2</drawSize>
+          <texPath>Things/Pawn/SlimeRed/DessicatedSlimeRed</texPath>
+          <drawSize>0.9</drawSize>
         </dessicatedBodyGraphicData>
       </li>
       <li>
         <bodyGraphicData>
-          <texPath>Things/Pawn/Slime/Slime</texPath>
-          <drawSize>2.0</drawSize>
+          <texPath>Things/Pawn/SlimeRed/SlimeRed</texPath>
+          <drawSize>1.5</drawSize>
         </bodyGraphicData>
         <dessicatedBodyGraphicData>
-          <texPath>Things/Pawn/Slime/DessicatedSlime</texPath>
-          <drawSize>2.0</drawSize>
+          <texPath>Things/Pawn/SlimeRed/DessicatedSlimeRed</texPath>
+          <drawSize>1.5</drawSize>
         </dessicatedBodyGraphicData>
       </li>
     </lifeStages>

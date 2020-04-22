@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <ThingDef ParentName="BaseFilth">
+    <defName>Filth_CMSlimeBlue</defName>
+    <label>slime fluid</label>
+    <statBases>
+      <Beauty>-25</Beauty>
+      <Cleanliness>-5</Cleanliness>
+    </statBases>
+    <graphicData>
+      <texPath>Things/Filth/Spatter</texPath>
+      <color>(85,151,198)</color>
+    </graphicData>
+    <filth>
+      <rainWashes>true</rainWashes>
+      <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
+      <canFilthAttach>true</canFilthAttach>
+    </filth>
+  </ThingDef>
+
+  <ThingDef ParentName="SlimeThingBase">
+    <defName>CMSlimeBlue</defName>
+    <label>blue slime</label>
+    <description>A sentient blue glob made from mutagenic chemicals, it grows rapidly and constantly seeks plant matter to assimilate.\n\nBlue slimes are the most peaceful and passive mutagenic slimes. They move very slowly and rarely attempt to strike back on harm. That said, blue slimes have unnaturally high resistances and may put out a poweful punch in melee combat.</description>
+    <statBases>
+      <MoveSpeed>0.88</MoveSpeed>
+      <ComfyTemperatureMin>-65</ComfyTemperatureMin>
+      <MarketValue>600</MarketValue>
+	  <MeatAmount>0</MeatAmount>
+	  <LeatherAmount>0</LeatherAmount>
+	  <ArmorRating_Blunt>1.5</ArmorRating_Blunt>
+	  <ArmorRating_Sharp>0.8</ArmorRating_Sharp>
+	  <ToxicSensitivity>0</ToxicSensitivity>
+	  <EatingSpeed>3</EatingSpeed>
+	  <MeleeDodgeChance>1.2</MeleeDodgeChance>
+	  <ImmunityGainSpeed>5</ImmunityGainSpeed>
+    </statBases>
+    <tools>
+      <li>
+        <label>head</label>
+        <capacities>
+          <li>Blunt</li>
+        </capacities>
+        <power>25</power>
+        <cooldownTime>2.5</cooldownTime>
+        <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
+        <surpriseAttack>
+          <extraMeleeDamages>
+            <li>
+              <def>Stun</def>
+              <amount>32</amount>
+            </li>
+          </extraMeleeDamages>
+        </surpriseAttack>
+      </li>
+    </tools>
+    <comps>
+      <li Class="CompProperties_EggLayer">
+	    <eggUnfertilizedDef>EggSlimeBlueUnfertilized</eggUnfertilizedDef>
+        <eggFertilizedDef>EggSlimeBlueFertilized</eggFertilizedDef>
+        <eggFertilizationCountMax>1</eggFertilizationCountMax>
+        <eggLayIntervalDays>30.0</eggLayIntervalDays>
+        <eggCountRange>1</eggCountRange>
+      </li>
+    </comps>
+    <race>
+      <body>CMSlime</body>
+      <baseBodySize>2.8</baseBodySize>
+      <baseHungerRate>3.0</baseHungerRate>
+      <baseHealthScale>18</baseHealthScale>
+	  <needsRest>false</needsRest>
+      <foodType>VegetarianRoughAnimal, DendrovoreAnimal</foodType>
+	  <fleshType>Insectoid</fleshType>
+      <useMeatFrom>Megaspider</useMeatFrom>
+	  <bloodDef>Filth_CMSlimeBlue</bloodDef>
+      <trainability>Simple</trainability>
+      <wildness>0.6</wildness>
+      <manhunterOnTameFailChance>0.01</manhunterOnTameFailChance>
+      <manhunterOnDamageChance>0.05</manhunterOnDamageChance>
+      <gestationPeriodDays>35</gestationPeriodDays>
+      <litterSizeCurve>
+        <points>
+          <li>(0.5, 0)</li>
+          <li>(1, 1)</li>
+          <li>(2, 1)</li>
+          <li>(2.5, 0)</li>
+        </points>
+      </litterSizeCurve>
+      <lifeExpectancy>9</lifeExpectancy>
+      <lifeStageAges>
+        <li>
+          <def>AnimalBaby</def>
+          <minAge>0</minAge>
+        </li>
+        <li>
+          <def>AnimalJuvenile</def>
+          <minAge>0.2</minAge>
+        </li>
+        <li>
+          <def>AnimalAdult</def>
+          <minAge>1.0</minAge>
+          <soundWounded>Pawn_Slime_Wound</soundWounded>
+          <soundDeath>Pawn_Slime_Wound</soundDeath>
+          <soundCall>Pawn_Slime_Call</soundCall>
+          <soundAngry>Pawn_Slime_Call</soundAngry>
+        </li>
+      </lifeStageAges>
+      <soundMeleeHitPawn>Pawn_Melee_BigBash_HitPawn</soundMeleeHitPawn>
+      <soundMeleeHitBuilding>Pawn_Melee_BigBash_HitBuilding</soundMeleeHitBuilding>
+      <soundMeleeMiss>Pawn_Melee_BigBash_Miss</soundMeleeMiss>
+	  <hediffGiverSets>
+        <li>Slime</li>
+      </hediffGiverSets>
+    </race>
+	<butcherProducts>
+	  <SlimeGlobBlue>20</SlimeGlobBlue>
+    </butcherProducts>
+  </ThingDef>
+
+  <PawnKindDef ParentName="AnimalKindBase">
+    <defName>CMSlimeBlue</defName>
+    <label>blue slime</label>
+	<labelPlural>blue slimes</labelPlural>
+    <race>CMSlimeBlue</race>
+    <combatPower>360</combatPower>
+    <lifeStages>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/SlimeBlue/SlimeBlue</texPath>
+          <drawSize>0.9</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/SlimeBlue/DessicatedSlimeBlue</texPath>
+          <drawSize>0.9</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/SlimeBlue/SlimeBlue</texPath>
+          <drawSize>1.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/SlimeBlue/DessicatedSlimeBlue</texPath>
+          <drawSize>1.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+      <li>
+        <bodyGraphicData>
+          <texPath>Things/Pawn/SlimeBlue/SlimeBlue</texPath>
+          <drawSize>2.5</drawSize>
+        </bodyGraphicData>
+        <dessicatedBodyGraphicData>
+          <texPath>Things/Pawn/SlimeBlue/DessicatedSlimeBlue</texPath>
+          <drawSize>2.5</drawSize>
+        </dessicatedBodyGraphicData>
+      </li>
+    </lifeStages>
+  </PawnKindDef>
+
+</Defs>

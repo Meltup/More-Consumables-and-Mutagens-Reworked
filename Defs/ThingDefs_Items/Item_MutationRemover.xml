@@ -34,5 +34,36 @@
       <li>RewardStandardMidFreq</li>
     </thingSetMakerTags>
   </ThingDef>
+  
+  <RecipeDef>
+    <defName>AdministerMutationRemover</defName>
+    <label>administer genome mech serum</label>
+    <description>Administer a genome mech serum.</description>
+    <workerClass>Recipe_AdministerUsableItem</workerClass>
+    <jobString>Administering genome mech serum.</jobString>
+    <targetsBodyPart>false</targetsBodyPart>
+    <anesthetize>false</anesthetize>
+    <workAmount>400</workAmount>
+    <dontShowIfAnyIngredientMissing>true</dontShowIfAnyIngredientMissing>
+    <surgerySuccessChanceFactor>99999</surgerySuccessChanceFactor>
+	<recipeUsers>
+      <li>Human</li>
+    </recipeUsers>
+    <ingredients>
+      <li>
+        <filter>
+          <thingDefs>
+            <li>MutationRemover</li>
+          </thingDefs>
+        </filter>
+        <count>1</count>
+      </li>
+    </ingredients>
+    <fixedIngredientFilter>
+      <thingDefs>
+        <li>MutationRemover</li>
+      </thingDefs>
+    </fixedIngredientFilter>
+  </RecipeDef>
     
 </Defs>

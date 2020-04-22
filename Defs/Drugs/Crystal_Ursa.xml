@@ -4,7 +4,7 @@
   <ThingDef ParentName="DrugPillBase">
     <defName>Ursa</defName>
     <label>ursa</label>
-    <description>A brown pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversibly. Forming beast like mutations, Ursa was primarily designed for use by special divisions of military shock troopers.</description>
+    <description>A brown pill with a mutagenic serum inside, anyone who consumes the pill mutates irreversibly. Forming beast-like mutations, Ursa was primarily designed for use by special divisions of military shock troopers.</description>
 	<descriptionHyperlinks>
       <HediffDef>UrsaHigh</HediffDef>
 	  <HediffDef>UrsaSleep</HediffDef>

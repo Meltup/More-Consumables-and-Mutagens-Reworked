@@ -55,9 +55,9 @@
 
   <RecipeDef>
     <defName>MakeAmbrosiaTea</defName>
-    <label>make ambrosia tea x2</label>
-    <description>Make 2 cups of ambrosia tea, a calming beverage.</description>
-    <jobString>Making ambrosia tea.</jobString>
+    <label>brew ambrosia tea x2</label>
+    <description>Brew 2 cups of ambrosia tea, a calming beverage.</description>
+    <jobString>Brewing ambrosia tea.</jobString>
     <workAmount>300</workAmount>
     <workSpeedStat>CookSpeed</workSpeedStat>
     <requiredGiverWorkType>Cooking</requiredGiverWorkType>

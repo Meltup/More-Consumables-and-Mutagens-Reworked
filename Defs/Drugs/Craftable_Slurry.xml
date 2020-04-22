@@ -89,9 +89,9 @@
       </li>
       <li>
         <filter>
-          <thingDefs>
-            <li>SlimeGlob</li>
-          </thingDefs>
+          <categories>
+            <li>SlimeGlobs</li>
+          </categories>
         </filter>
         <count>10</count>
       </li>
@@ -110,18 +110,20 @@
     <fixedIngredientFilter>
       <categories>
         <li>MeatRaw</li>
+		<li>SlimeGlobs</li>
       </categories>
       <thingDefs>
         <li>MedicineIndustrial</li>
-        <li>SlimeGlob</li>
       </thingDefs>
     </fixedIngredientFilter>
     <defaultIngredientFilter>
       <categories>
-        <li>Foods</li>
-		<li>Items</li>
-		<li>Medicine</li>
+        <li>MeatRaw</li>
+		<li>SlimeGlobs</li>
       </categories>
+      <thingDefs>
+        <li>MedicineIndustrial</li>
+      </thingDefs>
     </defaultIngredientFilter>
     <workSkill>Intellectual</workSkill>
 	<recipeUsers>
@@ -138,8 +140,8 @@
   
   <HediffDef ParentName="CrystalDrugMutationBase">
     <defName>SlurryWithering</defName>
-    <label>withering</label>
-    <description>Mutation that has resulted in withering of heart's functions. Mutually exclusive with ignition mutation.</description>
+    <label>withering heart</label>
+    <description>Mutation that has resulted in withering of heart's functions. Mutually exclusive with ignited heart mutation.</description>
 	<descriptionHyperlinks>
 	    <ThingDef>MutagenSlurry</ThingDef>
     </descriptionHyperlinks>
@@ -148,7 +150,7 @@
 	    <capMods>
           <li>
             <capacity>BloodFiltration</capacity>
-            <offset>-0.10</offset>
+            <offset>-0.20</offset>
           </li>
 	    </capMods>
 		<makeImmuneTo>
@@ -240,8 +242,7 @@
       <li>
 	    <statOffsets>
 		  <CarryingCapacity>10</CarryingCapacity>
-		  <MeleeHitChance>0.1</MeleeHitChance>
-		  <MiningSpeed>0.1</MiningSpeed>
+		  <MiningSpeed>0.2</MiningSpeed>
         </statOffsets>
       </li>
     </stages>
@@ -299,7 +300,7 @@
     <stages>
       <li>
 	    <statOffsets>
-		  <SocialImpact>0.15</SocialImpact>
+		  <SocialImpact>0.2</SocialImpact>
 		  <TameAnimalChance>0.1</TameAnimalChance>
 		  <TradePriceImprovement>0.1</TradePriceImprovement>
         </statOffsets>
