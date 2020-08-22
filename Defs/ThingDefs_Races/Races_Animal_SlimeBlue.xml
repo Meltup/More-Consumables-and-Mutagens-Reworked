@@ -13,9 +13,11 @@
       <color>(85,151,198)</color>
     </graphicData>
     <filth>
+      <disappearsInDays>35~40</disappearsInDays>
       <rainWashes>true</rainWashes>
       <cleaningWorkToReduceThickness>70</cleaningWorkToReduceThickness>
       <canFilthAttach>true</canFilthAttach>
+      <cleaningSound>Interact_CleanFilth_Fluid</cleaningSound>
     </filth>
   </ThingDef>
 
